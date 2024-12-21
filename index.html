@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="animaciones.js"></script>
+
+
+</head>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
+  });
+</script>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const totalSlides = slides.length;
+
+  function moveSlide(direction) {
+      currentSlide += direction;
+
+      // Ciclo infinito (volver al inicio/final)
+      if (currentSlide < 0) {
+          currentSlide = totalSlides - 1;
+      } else if (currentSlide >= totalSlides) {
+          currentSlide = 0;
+      }
+
+      // Ajustar el desplazamiento del carrusel
+      const offset = -currentSlide * 100; // 100% por slide
+      document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+  }
+</script>
+
+
+<body>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-image: url('https://cdn.pixabay.com/photo/2023/11/18/19/06/futuristic-home-8397004_1280.jpg'); /* Cambia a tu imagen */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+  </style>
+    <header class="header">
+        <h1>Portfolio Personal</h1>
+        <p>Estudiante en Ingeniería en Sistemas de Información</p>
+        <nav>
+          <ul class="menu">
+              <li><a href="#acercademi">Acerca de mí</a></li>
+              <li><a href="#aptitudes">Aptitudes</a></li>
+              <li><a href="#proyectos">Proyectos</a></li>
+              <li><a href="#certificados">Certificados</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+          </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="animated-background"></div>
+      <div class="animated-background"></div>
+      <div class="animation-wrapper">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+
+        <section id="acercademi">
+            <h4>Acerca de mí </h3>
+            <div class="Información">
+              <p>Hola! Soy Ulises, estudiante avanzado en ingeniería en sistemas, no cuento con experiencia laboral pero he realizado proyectos y desarrollado habilidades tanto duras como blandas a lo largo de mi recorrido que detallo a continuación.</p>
+            </div>    
+        </section>            
+
+              <section id="aptitudes">
+                <h2>Aptitudes</h2>
+                <div class="habilidades">
+                    <h3>Experiencias trabajando con las siguientes tecnologías</h3>
+                    
+                      <h3>Lenguajes de Programación</h3>
+                      <div class="lenguajes-container">
+                          <div class="icon-container">
+                              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" alt="Python" class="icon">
+                              <p>Python</p>
+                          </div>
+                          <div class="icon-container">
+                              <img src="https://www.freepnglogos.com/uploads/javascript-png/png-javascript-badge-picture-8.png" alt="JavaScript" class="icon">
+                              <p>JavaScript</p>
+                          </div>
+                          <div class="icon-container">
+                              <img src="https://images.vexels.com/content/166401/preview/java-programming-language-icon-05bb98.png" alt="Java" class="icon">
+                              <p>Java</p>
+                          </div>
+                          <div class="icon-container">
+                              <img src="https://cdn0.iconfinder.com/data/icons/social-network-9/50/22-512.png" alt="HTML" class="icon">
+                              <p>HTML</p>
+                          </div>
+                          <div class="icon-container">
+                              <img src="https://cdn-icons-png.flaticon.com/512/5968/5968242.png" alt="CSS" class="icon">
+                              <p>CSS</p>
+                          </div>
+                      </div>
+                      <h3>Frameworks</h3>
+                      <div class="lenguajes-container">
+                        <div class="icon-container">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3y9U6qqcVA6ccWzSe4G-xz2t32zdsC5f-Zg&s" alt="SpringBoot" class="icon">
+                            <p>Spring Framework</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="https://www.svgrepo.com/show/327388/logo-react.svg" alt="React Native" class="icon">
+                            <p>React</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="https://erdincuzun.com/wp-content/uploads/svg/nodejs.svg" alt="Express" class="icon">
+                            <p>Express</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/bootstrap-5-logo-icon.png" alt="HTML" class="icon">
+                            <p>Bootstrap</p>
+                        </div>
+                        <div class="icon-container">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png" alt="SQLite" class="icon">
+                            <p>Node JS</p>
+                        </div>                      
+                                    
+                </div>
+          </section>
+
+
+          <section id="habilidades">
+            <h4>Técnicas</h4>
+            <div class="tecnicas">
+              <p>En cuanto a la parte más técnica fuera de los lenguajes tengo las habilidades de:</p>
+              <ul>
+                <li>Desarrollo de aplicaciones web</li>
+                <li>Uso de control de versiones con Git</li>
+                <li>Desarrollo de APIs RESTful</li>
+                <li>Manejo de Bases de Datos, definición de tablas y relaciones entre ellas</li>
+                <li>Uso de frameworks como Spring Boot y Express.js</li>
+                <li>Conocimiento en pruebas unitarias y automatizadas</li>
+                <li>Capacidad para trabajar con metodologías ágiles (Scrum)</li>
+                <li>Definición de requerimientos, modelado de procesos, conocimientos en definición de planes de proyectos</li>
+              </ul>
+            </div>
+
+          <section id=""
+            <div class="habilidad blanda">
+              <h7>Habilidades Blandas</h7>
+              <p>Además poseo las siguientes habilidades blandas:</p>
+              <ul>
+                <li>Trabajo en equipo</li>
+                <li>Gestión efectiva del tiempo</li>
+                <li>Adaptabilidad y flexibilidad, tanto para las metodologías de trabajo como para los lenguajes de programación</li>
+                <li>Resolución de problemas y Pensamiento Critico</li>
+                <li>Creatividad e Innovación ante problemáticas complejas</li>
+                <li>Disposición para adquirir nuevos conocimientos</li>
+                <li>Liderazgo y Toma de decisiones</li>
+              </ul>
+            </div>
+
+          </section>          
+
+      </div>
+            
+      <!-- Proyectos a desarrollar -->
+      <section id="proyectos">
+            <h2>Proyectos</h2>
+            <div class="proyecto">
+                <h3>Alquiler de Bicicletas</h3>
+                <div class="image-container">
+                  <div class="image-wrapper">
+                    <img src="https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg" alt="Imagen 1" class="thumbnail" data-modal>
+                    <div class="overlay">+1</div> <!-- Contenedor para el +1 -->
+
+                  </div>
+                
+                </div>
+              
+              <!-- Modal para ver imágenes en tamaño ampliado -->
+              <div id="image-modal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <button id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&#10094;</button>
+                <img id="modal-img" class="modal-content" alt="Imagen ampliada">
+                <button id="nextBtn" class="nav-btn" onclick="changeImage(1)">&#10095;</button>
+                <div id="caption"></div>
+              </div>
+
+                <p>Desarrollé un sistema que permite a los usuarios registrados alquilar bicicletas en estaciones distribuidas por la ciudad. El precio del alquiler se calcula en función del tiempo, la distancia entre estaciones, y los días promocionales. Además, el sistema permite la conversión de la moneda al momento de la devolución. Implementado con Spring Boot, JPA y SQLite. Adjunto una imágen representativa del proyecto realizado y la documentación de los métodos desarrollados</p>
+                <a href="https://github.com/UlisesGutierrez2/Proyecto-de-Backend.git" target="_blank">Ver en GitHub</a>
+          </div>
+
+          <h3>Proyecto de Gestión de Contribuyentes</h3>
+          <div class="image-container">
+            <div class="image-wrapper">
+              <img src="images/proyecto localidades inicio.png" alt="Inicio" class="thumbnail" data-modal>
+              <div class="overlay">+5</div> <!-- Contenedor para el +1 -->
+
+            </div>
+          
+          </div>
+        
+        <!-- Modal para ver imágenes en tamaño ampliado -->
+        <div id="image-modal" class="modal">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <button id="prevBtn" class="nav-btn" onclick="changeImage(-1)">&#10094;</button>
+          <img id="modal-img" class="modal-content" alt="Imagen ampliada">
+          <button id="nextBtn" class="nav-btn" onclick="changeImage(1)">&#10095;</button>
+          <div id="caption"></div>
+        </div>
+
+          <p>Desarrollé un sistema para la administración de los contribuyentes de la provincia de Córdoba que tienen una propiedad con deudas. Se incluye el registro de las localidades, la información de los vencimientos por inmuebles, la consulta de inmuebles por localidades, se incluye además la consulta, baja y modificacion del listado de inmueble y localidades; Por último cuenta con un manejo de usuarios que según el rol que posea son las acciones que pueden realizar. Para este proyecto utilicé JavaScript, Css, Html, en cuanto al backend utilicé JavaScript, Express, React, Axios, SQLite para la construccion de la Base de Datos, y para la seguridad se genera JsonWebToken. Adjunto imágenes de las distintas pestañas de la página</p>
+          <a href="https://github.com/UlisesGutierrez2/Proyecto-Inmuebles.git" target="_blank">Ver en GitHub</a>
+    </div>
+
+        </section>
+
+        <section id="certificados">
+          <h2>Certificados</h2>
+          <div class="certificados-container">
+
+              <div class="certificado">
+                <img src="images/argentina programa.png" alt="Certificado 4">
+                <p><strong>Certificado Argentina Programa</strong></p>
+                <p>Me capacité en el uso del paradigma orientados a objetos utilizando rubby como lenguaje a lo largo del curso. Una vez culminado el curso pude certificar los conocimientos como la definición de diagramas de clases, definición de objetos, métodos, relaciones y multiplicidad entre las mismas</p>
+            </div>
+            <div class="certificado">
+              <img src="images/certificado2.jpeg" alt="Certificado 3">
+              <p><strong>Certificado en Latin Code Week</strong></p>
+              <p>En esta experiencia tuve que trabajar en equipo para definir una aplicación en donde se aborde alguna problemática del cambio climático. Luego de trabajo en equipo planteamos el uso estratégico de contenedores dentro de la ciudad. Me llevo como experiencia el trabajo en equipo, el liderazgo en algunas oportunidades, división de tareas y gestión estratégica del tiempo con el que contabamos</p>
+          </div>
+            <div class="certificado">
+              <img src="images/certificado3.jpeg" alt="Certificado 2">
+              <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Excel</strong></p>
+              <p>Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de la Provincia de Córdoba. Certifique mis conocimientos en Excel como el uso y creación de fórmulas, creación de gráficos, manejo de las macros para un uso más eficiente de la hoja de cálculo entre otras </p>
+          </div>
+            <div class="certificado">
+              <img src="images/certificado1.jpeg" alt="Certificado 1">
+              <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Word</strong></p>
+              <p>Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de la Provincia de Córdoba. Certifique mis conocimientos en Word como la edición y formato de texto, gestión de páginas, opciones de impresión y vista entre otras</p>
+          </div>
+
+        </div>
+      </section>
+
+      <div id="modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img id="modal-img" class="modal-content">
+        <div id="caption"></div>
+    </div>
+    </main>
+    <footer>
+      <section id="contacto">
+        <p>Contacto: <a href="mailto:tuemail@example.com">umatheo.gc@gmail.com</a></p>
+        <p>Teléfono de Contacto: 351 674-4529</a></p>
+        <p>GitHub: <a href = "https://github.com/UlisesGutierrez2">Más proyectos personales</a></p>
+      </section>
+    </footer>
+</body>
+</html>

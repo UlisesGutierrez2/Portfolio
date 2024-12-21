@@ -1,0 +1,542 @@
+body {
+    font-family: 'Orbitron', sans-serif;    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #dd8181;
+
+
+    h1, h2, h3 {
+        font-family: 'Russo One', sans-serif;
+    }
+}
+
+
+
+header, footer {
+    text-align: center;
+    padding: 1em;
+    background: #a213e46b;
+    color: #ffffff;
+}
+main {
+    padding: 2em;
+}
+.proyecto {
+    margin: 1em 0;
+}
+#acercademi h4 {
+    font-size: 34px;
+    margin-top: 100px;
+}
+
+#acercademi p {
+    font-size: 16px;
+}
+
+#proyectos h2 {
+    font-size: 34px;
+}
+
+#aptitudes {
+    padding: 2rem 0;
+}
+
+.habilidades {
+    padding: 2rem 0; 
+}
+
+
+
+#lenguajes {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.lenguajes-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100px;
+}
+
+.icon {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.icon-container p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+
+
+
+.icon {
+    width: 120px; /* Tamaño de los iconos */
+    height: 120px;
+    margin: 0 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+
+.icon {
+    flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+    .icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+#certificados {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.certificados-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Asegura que las imágenes se ajusten si hay menos de 4 en pantalla */
+}
+
+.certificado {
+    width: 22%; /* Ancho de cada imagen + descripción */
+    margin-bottom: 2rem; /* Espaciado entre las filas */
+    text-align: center;
+}
+
+.certificado img {
+    width: 100%; /* Las imágenes ocuparán el 100% del ancho del contenedor */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de profundidad */
+}
+
+.certificado p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #dd8181;
+}
+
+.certificado strong {
+    font-size: 1.1rem;
+    color: #131414; /* Un color para resaltar el título del certificado */
+}
+
+.certificados-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.certificado {
+    width: 22%;
+    text-align: center;
+    margin: 10px;
+}
+
+.certificado-img {
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.certificado-img:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    text-align: center;
+    padding: 10px;
+    color: #ccc;
+    font-size: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Estilo básico del menú */
+nav {
+    margin-top: 10px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #ffcc00; /* Color al pasar el cursor */
+}
+/* Estilos del carrusel */
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    text-align: center;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-slide p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Estilo para la cabecera */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; /* Ajusta el alto según lo necesites */
+    background-image: url('images/cabecera.jpg'); /* Ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Estilo cuando la cabecera se reduce */
+.header.smaller {
+    padding: 15px 0; /* Tamaño reducido */
+    height: 150px; /* Ajusta este valor al nuevo tamaño */
+    background-position:center; /* Ajuste visual de la imagen */
+    background-image: url(images/cabecera.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* El contenido dentro del header, ajustable si es necesario */
+.header img {
+    max-height: 70%; /* Imagen dentro del header (si la hay) */
+    object-fit: contain;
+}
+
+/* Sin transiciones para la posición del fondo */
+.header.smaller img {
+    transform: none; /* Sin movimiento de la imagen */
+    opacity: 1; /* Mantiene opacidad completa */
+}
+/* Eliminar márgenes por defecto del body */
+body {
+    margin: 0;
+    padding-top: 300px; /* Ajusta este valor según la altura inicial de la cabecera */
+}
+
+/* Ajusta el padding-top de la primera sección */
+section {
+    padding-top: 100px; /* Ajusta según el tamaño de la cabecera fija */
+}
+
+/* Estilo para la cabecera fija */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+body {
+    margin: 0; /* Elimina márgenes por defecto */
+    height: 100vh; /* Hace que el cuerpo ocupe toda la altura de la ventana */
+    background-image: url('https://static.vecteezy.com/system/resources/previews/001/927/399/non_2x/abstract-retro-futurism-with-purple-background-free-vector.jpg'); /* URL de la imagen */
+    background-size: cover; /* La imagen cubre toda el área sin perder calidad */
+    background-position: center; /* Centra la imagen, mostrando la parte media */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+body {
+    margin: 0; /* Elimina los márgenes por defecto */
+    height: 100vh; /* Hace que el cuerpo ocupe toda la altura de la ventana */
+    background-image: url('URL_DE_TU_IMAGEN'); /* Cambia por la URL o ruta de tu imagen */
+    background-size: cover; /* Hace que la imagen cubra toda el área */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Fija la imagen mientras haces scroll */
+}
+
+
+@font-face {
+    font-family: 'FuturaCustom';
+    src: url('fonts/futura-font.ttf') format('truetype');
+}
+
+body {
+    font-family: 'FuturaCustom', sans-serif;
+}
+
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffcc; /* Color neón */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
+    letter-spacing: 2px;
+}
+
+h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffcc; /* Color neón */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffcc; /* Color neón */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
+    letter-spacing: 2px;
+}
+
+h7 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffcc; /* Color neón */
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
+    letter-spacing: 2px;
+}
+
+
+h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #dd8181; /* Color neón */
+    text-shadow: 0 0 3px #dd8181, 0 0 6px #dd8181;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+p, ul, a{
+    font-family: 'Orbitron', sans-serif;
+    color: #dd8181; /* Color neón */
+    text-shadow: 0 0 2px #dd8181, 0 0 4px #dd8181;
+    letter-spacing: 2px;
+}
+
+
+/* Contenedor de imágenes */
+.image-container {
+    display: flex;
+    gap: 10px; /* Espaciado entre imágenes */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo para miniaturas */
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    transition: transform 0.2s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para las miniaturas */
+/* Contenedor de la imagen */
+.image-container {
+    position: relative;
+}
+
+/* Imagen miniatura */
+.thumbnail {
+    width: 100%;
+    height: auto;
+    transition: filter 0.3s ease-in-out; /* Transición para el desenfoque */
+}
+
+/* Efecto de borroso al pasar el mouse */
+.thumbnail:hover {
+    filter: blur(5px); /* Aplica el desenfoque */
+}
+
+/* El +1 que aparece al pasar el mouse */
+.thumbnail:hover + .overlay {
+    opacity: 1; /* Mostrar el +1 */
+}
+
+/* Estilo para el +1 */
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease-in-out; /* Transición para la aparición */
+}
+
+
+/* Modal (oculto por defecto) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenido del modal (imagen) */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Botones de navegación */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
