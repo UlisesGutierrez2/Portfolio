@@ -77,124 +77,72 @@ window.addEventListener('scroll', function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const images = [
-        "https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg", // Imagen 1
-        "images/Swagger.png" // Imagen 2
-    ];
-    let currentIndex = 0; // Índice de la imagen actual
+document.addEventListener("DOMContentLoaded", function () {
+    const galleries = {
+        "gallery-1": [
+            "https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg",
+            "images/Swagger.png"
+        ],
+        "gallery-2": [
+            "images/proyecto localidades inicio.png",
+            "images/proyecto localidades vencimientos.png",
+            "images/proyecto localidades buscar inmuebles.png",
+            "images/proyecto localidades contribuyentes.png",
+            "images/proyecto localidades buscar localidades.png",
+            "images/proyecto localidades login.png"
+        ]
+    };
 
-    // Mostrar la imagen inicial al hacer clic en la miniatura
-    document.querySelector('.thumbnail').addEventListener("click", () => {
-        const modal = document.getElementById("image-modal");
-        const modalImg = document.getElementById("modal-img");
-        const caption = document.getElementById("caption");
+    let currentGallery = [];
+    let currentIndex = 0;
 
-        modal.style.display = "flex"; // Mostrar el modal
-        modalImg.src = images[currentIndex]; // Establecer la imagen en el modal
-        caption.textContent = `Imagen ${currentIndex + 1}`; // Mostrar descripción
-    });
+    // Asocia eventos de clic a cada galería
+    Object.keys(galleries).forEach((galleryId) => {
+        const thumbnails = document.querySelectorAll(`#${galleryId} .thumbnail`);
+        const images = galleries[galleryId];
 
-    // Función para cerrar el modal
-    function closeModal(event) {
-        const modal = document.getElementById("image-modal");
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener("click", function (event) {
+                event.preventDefault();
+                currentGallery = images;
+                currentIndex = index;
 
-        // Si el clic es fuera de la imagen, se cierra el modal
-        if (event.target === modal || event.target.classList.contains('close')) {
-            modal.style.display = "none";
-        }
-    }
-    // Asignar la función de cerrar a los eventos de clic en el modal
-    const modal = document.getElementById("image-modal");
-    modal.addEventListener("click", closeModal); // Cerrar si se hace clic fuera de la imagen
+                const modal = document.getElementById("image-modal");
+                const modalImg = document.getElementById("modal-img");
+                const caption = document.getElementById("caption");
 
-
-    // Función para cambiar la imagen (siguiente o anterior)
-    function changeImage(direction) {
-        const modalImg = document.getElementById("modal-img");
-        const caption = document.getElementById("caption");
-
-        // Actualizar el índice de la imagen actual
-        currentIndex = (currentIndex + direction + images.length) % images.length;
-
-        // Establecer la nueva imagen en el modal
-        modalImg.src = images[currentIndex];
-        caption.textContent = `Imagen ${currentIndex + 1}`; // Actualizar descripción
-    }
-
-    // Asignar la función de cambio a los botones de navegación
-    document.getElementById("prevBtn").addEventListener("click", function() {
-        changeImage(-1);
-    });
-    document.getElementById("nextBtn").addEventListener("click", function() {
-        changeImage(1);
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    const images1 = [
-        "images/proyecto localidades inicio.png", // Imagen 1
-        "images/proyecto localidades vencimientos.png", // Imagen 2
-        "images/proyecto localidades buscar inmuebles.png", // Imagen 3
-        "images/proyecto localidades contribuyentes.png", // Imagen 4
-        "images/proyecto localidades buscar localidades.png", // Imagen 5
-        "images/proyecto localidades login.png"  // Imagen 6
-    ];
-
-    let currentIndex = 0; // Índice de la imagen actual
-
-    // Mostrar la imagen seleccionada al hacer clic en la miniatura
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener("click", function(event) {
-            event.preventDefault(); // Evitar el comportamiento predeterminado
-            currentIndex = index; // Actualiza el índice al hacer clic en la miniatura
-            const modal = document.getElementById("image-modal");
-            const modalImg = document.getElementById("modal-img");
-            const caption = document.getElementById("caption");
-
-            modal.style.display = "flex"; // Mostrar el modal
-            modalImg.src = images1[currentIndex]; // Establecer la imagen en el modal
-            caption.textContent = `Imagen ${currentIndex + 1}`; // Mostrar descripción
+                modal.style.display = "flex";
+                modalImg.src = currentGallery[currentIndex];
+                caption.textContent = `Imagen ${currentIndex + 1}`;
+            });
         });
     });
 
-    // Función para cerrar el modal
+    // Cierra el modal
     function closeModal(event) {
         const modal = document.getElementById("image-modal");
-
-        // Si el clic es fuera de la imagen, se cierra el modal
-        if (event.target === modal || event.target.classList.contains('close')) {
+        if (event.target === modal || event.target.classList.contains("close")) {
             modal.style.display = "none";
         }
-        event.preventDefault(); // Evitar el comportamiento predeterminado
     }
+    document.getElementById("image-modal").addEventListener("click", closeModal);
 
-    // Asignar la función de cerrar a los eventos de clic en el modal
-    const modal = document.getElementById("image-modal");
-    modal.addEventListener("click", closeModal); // Cerrar si se hace clic fuera de la imagen
-
-    // Función para cambiar la imagen (siguiente o anterior)
+    // Cambia la imagen en el modal
     function changeImage(direction) {
         const modalImg = document.getElementById("modal-img");
         const caption = document.getElementById("caption");
 
-        // Actualizar el índice de la imagen actual
-        currentIndex = (currentIndex + direction + images1.length) % images1.length;
-
-        // Establecer la nueva imagen en el modal
-        modalImg.src = images1[currentIndex];
-        caption.textContent = `Imagen ${currentIndex + 1}`; // Actualizar descripción
+        currentIndex = (currentIndex + direction + currentGallery.length) % currentGallery.length;
+        modalImg.src = currentGallery[currentIndex];
+        caption.textContent = `Imagen ${currentIndex + 1}`;
     }
 
-    // Asignar la función de cambio a los botones de navegación
-    document.getElementById("prevBtn").addEventListener("click", function(event) {
-        event.preventDefault(); // Evitar comportamiento predeterminado
+    document.getElementById("prevBtn").addEventListener("click", function (event) {
+        event.preventDefault();
         changeImage(-1);
     });
-    document.getElementById("nextBtn").addEventListener("click", function(event) {
-        event.preventDefault(); // Evitar comportamiento predeterminado
+    document.getElementById("nextBtn").addEventListener("click", function (event) {
+        event.preventDefault();
         changeImage(1);
     });
 });
