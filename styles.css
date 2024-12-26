@@ -50,6 +50,14 @@ main {
 #lenguajes {
     text-align: center;
     margin: 20px auto;
+    font-family: 'Orbitron', sans-serif;
+    color: #ebebeb; /* Color neón */
+    text-shadow: 0 0 3px #29ccc4, 0 0 6px #dd8181; /* Sombra para efecto neón */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-align: center; /* Centrar el texto */
+    padding: 1rem; /* Espaciado interno */
+    background: transparent; /* Fondo transparente o puedes ajustarlo si deseas */
+    border-top: 1px solid #dd8181; /* Opcional: Línea decorativa superior */
 }
 
 .lenguajes-container {
@@ -77,6 +85,14 @@ main {
     font-size: 14px;
     color: #333;
     margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #ebebeb; /* Color neón */
+    text-shadow: 0 0 3px #29ccc4, 0 0 6px #dd8181; /* Sombra para efecto neón */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-align: center; /* Centrar el texto */
+    padding: 1rem; /* Espaciado interno */
+    background: transparent; /* Fondo transparente o puedes ajustarlo si deseas */
+    border-top: 1px solid #dd8181; /* Opcional: Línea decorativa superior */
 }
 
 
@@ -405,23 +421,23 @@ h7 {
     font-family: 'Orbitron', sans-serif;
     color: #00ffcc; /* Color neón */
     text-transform: uppercase;
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
+    text-shadow: 0 0 5px #177aa8, 0 0 10px #00cc99;
     letter-spacing: 2px;
 }
 
 
 h3 {
     font-family: 'Orbitron', sans-serif;
-    color: #dd8181; /* Color neón */
-    text-shadow: 0 0 3px #dd8181, 0 0 6px #dd8181;
+    color: #ebebeb; /* Color neón */
+    text-shadow: 0 0 3px #29ccc4, 0 0 6px #dd8181;
     letter-spacing: 2px;
     text-align: center;
 }
 
 p, ul, a{
     font-family: 'Orbitron', sans-serif;
-    color: #dd8181; /* Color neón */
-    text-shadow: 0 0 2px #dd8181, 0 0 4px #dd8181;
+    color: #ebebeb; /* Color neón */
+    text-shadow: 0 0 3px #29ccc4, 0 0 6px #dd8181;
     letter-spacing: 2px;
 }
 
