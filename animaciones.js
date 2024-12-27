@@ -146,3 +146,47 @@ document.addEventListener("DOMContentLoaded", function () {
         changeImage(1);
     });
 });
+
+// Asegurarse de que el DOM está cargado antes de ejecutar el script
+document.addEventListener("DOMContentLoaded", () => {
+    const modalCertificado = document.getElementById("modal-certificado");
+    const captionCertificado = document.getElementById("caption-certificado");
+  
+    // Seleccionar todas las imágenes dentro de .certificados-container
+    document.querySelectorAll(".certificados-container .certificado img").forEach(img => {
+      img.addEventListener("click", () => {
+        modalCertificado.style.display = "flex"; // Mostrar el modal
+        let modalImg = document.getElementById("modal-image-certificado");
+  
+        // Si la imagen modal no existe, crearla
+        if (!modalImg) {
+          modalImg = document.createElement("img");
+          modalImg.id = "modal-image-certificado";
+          modalCertificado.insertBefore(modalImg, captionCertificado);
+        }
+  
+        // Actualizar la fuente y el alt de la imagen modal
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+  
+        // Agregar texto de subtítulo
+//       captionCertificado.textContent = img.alt;
+      });
+    });
+  
+    // Función para cerrar el modal
+    function closeModalCertificado() {
+      modalCertificado.style.display = "none";
+    }
+  
+    // Vincular el cierre del modal al clic fuera de la imagen
+    modalCertificado.addEventListener("click", event => {
+      if (event.target === modalCertificado) {
+        closeModalCertificado();
+      }
+    });
+  
+    // Asignar función de cierre al botón
+    document.querySelector(".close-certificado").addEventListener("click", closeModalCertificado);
+  });
+  
