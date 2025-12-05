@@ -12,7 +12,7 @@ body {
 
 
 
-header, footer {
+header {
     text-align: center;
     padding: 1em;
     background: #a213e46b;
@@ -174,27 +174,72 @@ main {
 }
 
 .certificados-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);   /* 3 columnas fijas */
+    gap: 2.5rem;
+    padding: 1rem;
+    justify-items: center;
 }
 
 .certificado {
-    width: 22%;
+    width: 100%;
+    max-width: 330px;   /* Tamaño ideal para 3 columnas */
+    background: rgba(0,0,0,0.25);
+    padding: 1.5rem;
+    border-radius: 12px;
     text-align: center;
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.certificado-img {
+
+.certificado img {
     width: 100%;
-    max-width: 200px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    aspect-ratio: 4 / 3; /* 🔥 Mantiene la proporción */
+    object-fit: cover;   /* O 'contain' si quieres que no corte nada */
+    border-radius: 10px;
 }
+
+
+@media (max-width: 768px) {
+    .certificados-container {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .certificado-img:hover {
     transform: scale(1.1);
 }
+
+
+.certificado img[src*="credly"] {
+    aspect-ratio: 16 / 9;
+    width: 150%;
+    object-fit: contain;
+    background: #0003;
+    padding: 10px;
+}
+
+.certificado .img-wrapper {
+        aspect-ratio: 9 / 9;
+
+    width: 100%;
+    height: 252px;           /* 🔥 altura uniforme */
+    overflow: hidden;        /* recorta el exceso */
+    border-radius: 10px;
+}
+
+.certificado .img-wrapper img {
+    aspect-ratio: 16 / 9;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* mantiene estética */
+    border-radius: 10px;
+}
+
 
 .modal {
     display: none;
@@ -603,3 +648,21 @@ p, ul, a{
     margin-top: 15px;
     font-size: 18px;
   }
+
+footer {
+    padding: 0.3em 0.2em;
+    margin: 0;
+    text-align: center;
+    background: #a213e46b;
+    color: #ffffff;
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.2;
+    padding: 2px 0;
+}
+
+footer section {
+    padding-top: 0;
+}
