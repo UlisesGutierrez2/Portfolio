@@ -27,6 +27,7 @@ main {
 #acercademi h4 {
     font-size: 34px;
     margin-top: 100px;
+    color: #00ffcc;
 }
 
 #acercademi p {
@@ -444,6 +445,7 @@ h1 {
     text-transform: uppercase;
     text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 h4 {
@@ -452,6 +454,7 @@ h4 {
     text-transform: uppercase;
     text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 h2 {
@@ -460,6 +463,7 @@ h2 {
     text-transform: uppercase;
     text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 h7 {
@@ -468,6 +472,7 @@ h7 {
     text-transform: uppercase;
     text-shadow: 0 0 5px #177aa8, 0 0 10px #00cc99;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 
@@ -665,4 +670,562 @@ footer p {
 
 footer section {
     padding-top: 0;
+}
+
+/* Estilos para Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 2rem 0;
+    padding: 0 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #1a1a3e 0%, #16213e 100%);
+    color: #00ffcc;
+    padding: 16px 12px;
+    border-radius: 16px;
+    border: 2px solid #00ffcc;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+}
+
+.skill-name {
+    font-size: 14px;
+    font-weight: 600;
+    text-shadow: 0 0 3px #29ccc4;
+    letter-spacing: 1px;
+}
+
+.skill-tag:hover {
+    background: linear-gradient(135deg, #00ffcc 0%, #29ccc4 100%);
+    color: #0a0e27;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+    transform: translateY(-4px);
+}
+
+.skill-tag:active {
+    transform: translateY(-2px);
+}
+
+.skills-intro {
+    margin: 1rem 0;
+    font-size: 16px;
+    text-align: center;
+    color: #ebebeb;
+}
+
+/* Modal de Habilidad */
+.skill-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-modal.active {
+    display: flex;
+}
+
+.skill-modal-content {
+    background: linear-gradient(135deg, #1a1a3e 0%, #16213e 100%);
+    border: 2px solid #00ffcc;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.4);
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.skill-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #00ffcc;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skill-modal-close:hover {
+    color: #dd8181;
+    text-shadow: 0 0 10px #dd8181;
+}
+
+#skill-modal-title {
+    color: #00ffcc;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+#skill-modal-description {
+    color: #ebebeb;
+    line-height: 1.6;
+    font-size: 15px;
+    margin: 0;
+    text-shadow: 0 0 3px #29ccc4;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 10px;
+    }
+    
+    .skill-modal-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Estilos para Habilidades Blandas */
+.soft-skills {
+    margin-bottom: 3rem;
+}
+
+#habilidadesblandas .skills-grid {
+    margin-bottom: 2rem;
+}
+
+#habilidadesblandas .skill-modal .skill-modal-content {
+    background: linear-gradient(135deg, #1a3e2e 0%, #16213e 100%);
+    border: 2px solid #29ccc4;
+}
+
+#habilidadesblandas .skill-tag:hover {
+    background: linear-gradient(135deg, #29ccc4 0%, #17a0a0 100%);
+    box-shadow: 0 0 20px rgba(41, 204, 196, 0.6);
+}
+
+/* ===== ESTILOS ACERCA DE MÍ ===== */
+#acercademi h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-intro {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.about-intro h3 {
+    font-size: 1.8rem;
+    color: #00ffcc;
+    margin-bottom: 1rem;
+}
+
+.about-intro p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ffffff;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.highlight-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(162, 19, 228, 0.3);
+    transition: all 0.3s ease;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-item:hover {
+    background: rgba(162, 19, 228, 0.2);
+    border-color: #a213e4;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(162, 19, 228, 0.3);
+}
+
+.highlight-item h4 {
+    color: #00ffcc;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    margin-top: 0;
+    min-height: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.highlight-item p {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+/* Fade-in staggered para cada párrafo */
+.highlight-item:nth-child(1) p { animation-delay: 0.5s; }
+.highlight-item:nth-child(2) p { animation-delay: 0.7s; }
+.highlight-item:nth-child(3) p { animation-delay: 0.9s; }
+
+/* Palabras clave destacadas */
+.keyword {
+    color: #00ffcc;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+    transition: all 0.3s ease;
+}
+
+.keyword:hover {
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+    letter-spacing: 0.5px;
+}
+
+/* Animación fade-in + slide up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    #acercademi h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    #acercademi h2 {
+        font-size: 1.6rem;
+    }
+    
+    .about-intro h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===== SECCIÓN PROYECTOS ===== */
+#proyectos {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+#proyectos h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: rgba(162, 19, 228, 0.05);
+    border: 1px solid rgba(162, 19, 228, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: #a213e4;
+    box-shadow: 0 12px 35px rgba(162, 19, 228, 0.3);
+    background: rgba(162, 19, 228, 0.1);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background: #1a1a2e;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-btn {
+    background: #a213e4;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #a213e4;
+}
+
+.project-btn:hover {
+    background: transparent;
+    color: #a213e4;
+}
+
+.project-content {
+    padding: 1.8rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin: 0 0 1rem 0;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.tech-badge {
+    background: linear-gradient(135deg, #a213e4 0%, #7a0fa0 100%);
+    color: #ffffff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid #dd8181;
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: linear-gradient(135deg, #dd8181 0%, #a213e4 100%);
+    box-shadow: 0 4px 12px rgba(221, 129, 129, 0.3);
+}
+
+.project-description {
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #dd8181;
+    font-size: 0.9rem;
+}
+
+.project-highlights li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* ===== RESPONSIVIDAD PROYECTOS ===== */
+@media (max-width: 1024px) {
+    .proyectos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 15px;
+    }
+    
+    #proyectos h2 {
+        font-size: 2rem;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #proyectos h2 {
+        font-size: 1.6rem;
+    }
+    
+    .project-content {
+        padding: 1.2rem;
+    }
+    
+    .tech-badges {
+        gap: 0.4rem;
+    }
+    
+    .tech-badge {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+}
+
+
+/* Animación de escritura */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid #00ffcc;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(60, end) forwards, blink 0.75s step-end infinite;
+}
+
+/* Fade-in suave */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+  animation-delay: 3s; /* Aparece cuando termina el título */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+
+/* Efecto de escritura para el título */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #00ffcc; /* cursor */
+  width: 0;
+  animation: typing 3s steps(60, end) forwards, blink 0.7s step-end infinite;
+}
+
+/* Párrafo fade-in suave */
+.fade-in-intro {
+  opacity: 0;
+  animation: fadeIntro 2s ease forwards;
+  animation-delay: 3s; /* comienza después del typing */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes fadeIntro {
+  to { opacity: 1; }
 }

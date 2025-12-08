@@ -79,9 +79,32 @@
       </div>
 
         <section id="acercademi">
-            <h4>Acerca de mí </h4>
-            <div class="Información">
-              <p>Hola! Soy Ulises Gutierrez, estudiante avanzado de Ingeniería en Sistemas de Información, egresado del nivel secundario como Bachiller en Informática, en donde comencé con mis primeras habilidades en el desarrollo de sistemas. No cuento con experiencia laboral, pero he realizado proyectos y desarrollado habilidades tanto duras como blandas a lo largo de mi formación en la UTN FRC que detallo a continuación.</p>
+            <h2>Acerca de mí</h2>
+            <div class="about-content">
+<div class="about-intro">
+  <h3 class="typewriter">
+    Ingeniero en Sistemas de Información | Desarrollo de Software | DevOps | Soporte IT
+  </h3>
+
+  <p class="fade-in-intro">
+    Estudiante avanzado de Ingeniería en Sistemas de Información (UTN FRC) con formación integral en desarrollo de software, infraestructura y soporte técnico. Combino experiencia en backend, DevOps y certificación en soporte técnico con competencias blandas de liderazgo y comunicación efectiva.
+  </p>
+</div>
+
+              <div class="about-highlights">
+                <div class="highlight-item">
+                  <h4>💻 Desarrollo de Software</h4>
+                  <p>Experiencia en backend con <span class="keyword">Spring Boot</span> y <span class="keyword">Node.js/Express</span>. Diseño de <span class="keyword">APIs RESTful</span>, arquitecturas de <span class="keyword">microservicios</span> y <span class="keyword">bases de datos relacionales</span>. Proyectos <span class="keyword">full-stack</span> implementados desde cero con buenas prácticas.</p>
+                </div>
+                <div class="highlight-item">
+                  <h4>⚙️ DevOps & Infraestructura</h4>
+                  <p>Especialización en containerización con <span class="keyword">Docker</span>, orquestación con <span class="keyword">Kubernetes</span>, <span class="keyword">CI/CD en GitLab</span> y automatización de despliegues. Experiencia con <span class="keyword">AWS</span> y prácticas de seguridad en <span class="keyword">microservicios</span>.</p>
+                </div>
+                <div class="highlight-item">
+                  <h4>🛠️ Soporte Técnico</h4>
+                  <p>Certificación en <span class="keyword">Soporte Técnico IT</span>. Capacidad para resolver problemas técnicos complejos, documentar procesos y escalar infraestructura. <span class="keyword">Bridging</span> entre desarrollo y operaciones.</p>
+                </div>
+              </div>
             </div>    
         </section>            
 
@@ -170,69 +193,157 @@
           <section id="habilidades">
             <h4>Técnicas</h4>
             <div class="tecnicas">
-              <p>En cuanto a la parte más técnica fuera de los lenguajes tengo las habilidades de:</p>
-              <ul>
-                <li>Desarrollo de aplicaciones web</li>
-                <li>Uso de control de versiones con Git</li>
-                <li>Desarrollo de APIs RESTful</li>
-                <li>Manejo de Bases de Datos, definición de tablas y relaciones entre ellas</li>
-                <li>Uso de frameworks como Spring Boot y Express.js</li>
-                <li>Conocimiento en pruebas unitarias y automatizadas</li>
-                <li>Capacidad para trabajar con metodologías ágiles (Scrum)</li>
-                <li>Definición de requerimientos, modelado de procesos, conocimientos en definición de planes de proyectos</li>
-                <li>Automatización de certificados SSL en Dockerfile para builds seguros y sin exposición de claves</li>
-                <li>Despliegue y configuración de microservicios utilizando contenedores y buenas prácticas de integración.</li>
-                <li>Creación de imágenes Docker optimizadas mediante multi-stage builds</li>
-                <li>Creación de redes internas en contenedores para evitar exponer la base de datos y reforzar la seguridad del entorno.</li>
-                <li>Implementación de pipelines CI/CD en GitLab para automatizar pruebas, builds y despliegues de microservicios.</li>
+              <p class="skills-intro">Habilidades técnicas desarrolladas</p>
+              
+              <div class="skills-grid">
+                <div class="skill-tag" data-skill="docker">
+                  <span class="skill-name">Docker</span>
+                </div>
+                <div class="skill-tag" data-skill="cicd">
+                  <span class="skill-name">CI/CD GitLab</span>
+                </div>
+                <div class="skill-tag" data-skill="microservicios">
+                  <span class="skill-name">Microservicios</span>
+                </div>
+                <div class="skill-tag" data-skill="api">
+                  <span class="skill-name">APIs RESTful</span>
+                </div>
+                <div class="skill-tag" data-skill="spring">
+                  <span class="skill-name">Spring Boot</span>
+                </div>
+                <div class="skill-tag" data-skill="express">
+                  <span class="skill-name">Express.js</span>
+                </div>
+                <div class="skill-tag" data-skill="database">
+                  <span class="skill-name">Bases de Datos</span>
+                </div>
+                <div class="skill-tag" data-skill="testing">
+                  <span class="skill-name">Testing Unitario</span>
+                </div>
+                <div class="skill-tag" data-skill="web-dev">
+                  <span class="skill-name">Web Development</span>
+                </div>
+                <div class="skill-tag" data-skill="git">
+                  <span class="skill-name">Git & Version Control</span>
+                </div>
+                <div class="skill-tag" data-skill="ssl">
+                  <span class="skill-name">SSL Automation</span>
+                </div>
+                <div class="skill-tag" data-skill="scrum">
+                  <span class="skill-name">Scrum</span>
+                </div>
+              </div>
 
-              </ul>
+              <!-- Modal para mostrar descripción -->
+              <div id="skill-modal" class="skill-modal">
+                <div class="skill-modal-content">
+                  <button class="skill-modal-close">&times;</button>
+                  <h3 id="skill-modal-title"></h3>
+                  <p id="skill-modal-description"></p>
+                </div>
+              </div>
             </div>
 
-          <section id="habilidadesblandas"></section>
-            <div class="habilidad blanda">
-              <h3>Habilidades Blandas</h3>
-              <p>Además poseo las siguientes habilidades blandas:</p>
-              <ul>
-                <li>Trabajo en equipo</li>
-                <li>Gestión efectiva del tiempo</li>
-                <li>Adaptabilidad y flexibilidad, tanto para las metodologías de trabajo como para los lenguajes de programación</li>
-                <li>Resolución de problemas y Pensamiento Critico</li>
-                <li>Creatividad e Innovación ante problemáticas complejas</li>
-                <li>Disposición para adquirir nuevos conocimientos</li>
-                <li>Liderazgo y Toma de decisiones</li>
-              </ul>
-            </div>
+          <section id="habilidadesblandas">
+            <h4>Habilidades Blandas</h4>
+            <div class="soft-skills">
+              <p class="skills-intro">Competencias interpersonales desarrolladas</p>
+              
+              <div class="skills-grid">
+                <div class="skill-tag" data-soft-skill="teamwork">
+                  <span class="skill-name">Trabajo en Equipo</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="time-management">
+                  <span class="skill-name">Gestión del Tiempo</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="adaptability">
+                  <span class="skill-name">Adaptabilidad</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="problem-solving">
+                  <span class="skill-name">Resolución de Problemas</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="creativity">
+                  <span class="skill-name">Creatividad e Innovación</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="learning">
+                  <span class="skill-name">Disposición al Aprendizaje</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="leadership">
+                  <span class="skill-name">Liderazgo</span>
+                </div>
+                <div class="skill-tag" data-soft-skill="communication">
+                  <span class="skill-name">Comunicación Efectiva</span>
+                </div>
+              </div>
 
-          </section>          
+              <!-- Modal para mostrar descripción -->
+              <div id="soft-skill-modal" class="skill-modal">
+                <div class="skill-modal-content">
+                  <button class="skill-modal-close">&times;</button>
+                  <h3 id="soft-skill-modal-title"></h3>
+                  <p id="soft-skill-modal-description"></p>
+                </div>
+              </div>
+            </div>
+          </section>
 
       </div>
             
-      <!-- Proyectos a desarrollar -->
+      <!-- Proyectos -->
       <section id="proyectos">
             <h2>Proyectos</h2>
-            <div class="proyecto">
-                <h3>Alquiler de Bicicletas</h3>
-                <div id="gallery-1" class="image-container">
-                  <div class="image-wrapper">
-                    <img src="https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg" alt="Imagen 1" class="thumbnail" data-modal>
-                    <div class="overlay">+1</div> <!-- Contenedor para el +1 -->
-
+            <div class="proyectos-grid">
+              
+              <!-- Proyecto 1: Alquiler de Bicicletas -->
+              <div class="project-card">
+                <div class="project-image">
+                  <img src="https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg" alt="Sistema de Alquiler de Bicicletas">
+                  <div class="project-overlay">
+                    <a href="https://github.com/UlisesGutierrez2/Proyecto-de-Backend.git" target="_blank" class="project-btn">Ver GitHub</a>
                   </div>
-                
                 </div>
+                <div class="project-content">
+                  <h3>Sistema de Alquiler de Bicicletas</h3>
+                  <div class="tech-badges">
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">JPA</span>
+                    <span class="tech-badge">SQLite</span>
+                  </div>
+                  <p class="project-description">Plataforma de alquiler de bicicletas con cálculo dinámico de precios basado en tiempo, distancia entre estaciones y promociones. Incluye conversión de moneda y gestión de múltiples estaciones.</p>
+                  <ul class="project-highlights">
+                    <li>✓ Sistema de precios dinámico e inteligente</li>
+                    <li>✓ Gestión de estaciones distribuidas</li>
+                    <li>✓ Conversión de moneda en tiempo real</li>
+                  </ul>
+                </div>
+              </div>
 
-                <p>Desarrollé un sistema que permite a los usuarios registrados alquilar bicicletas en estaciones distribuidas por la ciudad. El precio del alquiler se calcula en función del tiempo, la distancia entre estaciones, y los días promocionales. Además, el sistema permite la conversión de la moneda al momento de la devolución. Implementado con Spring Boot, JPA y SQLite. Adjunto una imágen representativa del proyecto realizado y la documentación de los métodos desarrollados</p>
-                <a href="https://github.com/UlisesGutierrez2/Proyecto-de-Backend.git" target="_blank">Ver en GitHub</a>
-          </div>
+              <!-- Proyecto 2: Gestión de Contribuyentes -->
+              <div class="project-card">
+                <div class="project-image">
+                  <img src="images/proyecto localidades inicio.png" alt="Sistema de Gestión de Contribuyentes">
+                  <div class="project-overlay">
+                    <a href="https://github.com/UlisesGutierrez2/Proyecto-Inmuebles.git" target="_blank" class="project-btn">Ver GitHub</a>
+                  </div>
+                </div>
+                <div class="project-content">
+                  <h3>Gestión de Contribuyentes y Propiedades</h3>
+                  <div class="tech-badges">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Express</span>
+                    <span class="tech-badge">SQLite</span>
+                    <span class="tech-badge">JWT</span>
+                  </div>
+                  <p class="project-description">Sistema administrativo para gestión de contribuyentes con propiedades en deuda en Córdoba. Incluye control de acceso por roles, gestión de vencimientos y reportes detallados.</p>
+                  <ul class="project-highlights">
+                    <li>✓ Control de acceso basado en roles (RBAC)</li>
+                    <li>✓ Autenticación con JWT y seguridad</li>
+                    <li>✓ Gestión completa de inmuebles y localidades</li>
+                  </ul>
+                </div>
+              </div>
 
-          <h3>Proyecto de Gestión de Contribuyentes</h3>
-          <div class="image-container">
-            <div id="gallery-2" class="image-wrapper">
-              <img src="images/proyecto localidades inicio.png" alt="Inicio" class="thumbnail" data-modal>
-              <div class="overlay">+5</div> <!-- Contenedor para el +1 -->
-          <p>Desarrollé un sistema para la administración de contribuyentes con propiedades en deuda en la provincia de Córdoba. El sistema permite registrar localidades, gestionar vencimientos por inmuebles, y realizar consultas, bajas y modificaciones de inmuebles y localidades. Además, incorpora un manejo de usuarios con permisos según su rol y seguridad basada en JsonWebToken. Implementado con JavaScript, CSS, HTML, Express, React, Axios y SQLite. Adjunto imágenes representativas del proyecto realizado.</p>
-          <a href="https://github.com/UlisesGutierrez2/Proyecto-Inmuebles.git" target="_blank">Ver en GitHub</a>
+            </div>
             </div>
           
           </div>
@@ -251,73 +362,91 @@
 
         </section>
 
-        <section id="certificados">
-          <h2>Certificados</h2>
-          <div class="certificados-container">
+<section id="certificados">
+  <h2>Certificados</h2>
+  <div class="certificados-container">
 
-              <div class="certificado">
-                <img src="images/argentina programa.png" alt="Certificado 4">
-                <p><strong>Certificado Argentina Programa</strong></p>
-                <p>Me capacité en el uso del paradigma orientados a objetos utilizando rubby como lenguaje a lo largo del curso. Una vez culminado el curso pude certificar los conocimientos como la definición de diagramas de clases, definición de objetos, métodos, relaciones y multiplicidad entre las mismas</p>
-            </div>
-            <div class="certificado">
-              <img src="images/certificado2.jpeg" alt="Certificado 3">
-              <p><strong>Certificado en Latin Code Week</strong></p>
-              <p>En esta experiencia tuve que trabajar en equipo para definir una aplicación en donde se aborde alguna problemática del cambio climático. Luego de trabajo en equipo planteamos el uso estratégico de contenedores dentro de la ciudad. Me llevo como experiencia el trabajo en equipo, el liderazgo en algunas oportunidades, división de tareas y gestión estratégica del tiempo con el que contabamos</p>
-          </div>
-            <div class="certificado">
-              <img src="images/certificado3.jpeg" alt="Certificado 2">
-              <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Excel</strong></p>
-              <p>Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de la Provincia de Córdoba. Certifique mis conocimientos en Excel como el uso y creación de fórmulas, creación de gráficos, manejo de las macros para un uso más eficiente de la hoja de cálculo entre otras </p>
-          </div>
-            <div class="certificado">
-              <img src="images/certificado1.jpeg" alt="Certificado 1">
-              <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Word</strong></p>
-              <p>Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de la Provincia de Córdoba. Certifique mis conocimientos en Word como la edición y formato de texto, gestión de páginas, opciones de impresión y vista entre otras</p>
-            </div>
-
-         
-            <div class="certificado">
-              <img src="images/Certificado - Expositor GUTIERREZ CUETTI_page-0001.jpg" alt="Certificado 8">
-              <p><strong>Certificado de Expositor - Cómo crear despliegues de microservicios automatizados</strong></p>
-              <p>Certificado otorgado por la UTN FRC por haber sido expositor en la conferencia “Cómo crear despliegues de microservicios
-      automatizados y no morir en el intento”, donde presenté prácticas y herramientas para despliegues automatizados y seguridad en
-      microservicios.
-              </p>
-            </div>
-
-
-        <div class="certificado">
-
-          <div class="img-wrapper">
-              <img class="certificado-ibm"
-                  src="https://images.credly.com/size/680x680/images/e807f203-a235-4c69-b9ee-f31bf015af6f/image.png"
-                  alt="IBM SkillsBuild Badge">
-          </div>
-
-          <p><strong>IBM SkillsBuild – Fundamentos de IT, Soporte Técnico</strong></p>
-
-          <p>
-            Certificación obtenida a través de IBM SkillsBuild y emitida en Credly. Acredita conocimientos en fundamentos
-            de informática, redes, hardware, software y seguridad, junto con metodologías de resolución de problemas y uso
-            de herramientas empleadas por profesionales de TI. Incluye práctica en atención al cliente con simulación de
-            conexión remota y comprensión de roles y habilidades clave del sector IT.
-          </p>
-
-          <a href="https://www.credly.com/badges/56a36ffa-6374-4855-ae63-b896fa7b2401/linked_in_profile"
-            target="_blank"
-            class="credly-link">
-            Ver credencial en Credly
-          </a>
-
-        </div>
-
-      </section>
-      <div id="modal-certificado" class="modal-certificado">
-        <span class="close-certificado" onclick="closeModalCertificado()">&times;</span>
-        <div id="caption-certificado"></div>
+    <!-- 1. IBM SkillsBuild -->
+    <div class="certificado">
+      <div class="img-wrapper">
+        <img class="certificado-ibm"
+             src="https://images.credly.com/size/680x680/images/e807f203-a235-4c69-b9ee-f31bf015af6f/image.png"
+             alt="IBM SkillsBuild Badge">
       </div>
-      
+
+      <p><strong>IBM SkillsBuild – Fundamentos de IT, Soporte Técnico</strong></p>
+      <p>
+        Certificación obtenida a través de IBM SkillsBuild y emitida en Credly. Acredita conocimientos en fundamentos
+        de informática, redes, hardware, software y seguridad, junto con metodologías de resolución de problemas y uso
+        de herramientas empleadas por profesionales de TI. Incluye práctica en atención al cliente con simulación de
+        conexión remota y comprensión de roles y habilidades clave del sector IT.
+      </p>
+
+      <a href="https://www.credly.com/badges/56a36ffa-6374-4855-ae63-b896fa7b2401/linked_in_profile"
+         target="_blank" class="credly-link">
+        Ver credencial en Credly
+      </a>
+    </div>
+
+    <!-- 2. Argentina Programa -->
+    <div class="certificado">
+      <img src="images/argentina programa.png" alt="Certificado Argentina Programa">
+      <p><strong>Certificado Argentina Programa</strong></p>
+      <p>
+        Me capacité en el uso del paradigma orientado a objetos utilizando Ruby como lenguaje. Una vez culminado el curso,
+        pude certificar conocimientos como la definición de diagramas de clases, objetos, métodos, relaciones y multiplicidad.
+      </p>
+    </div>
+
+    <!-- 3. Expositor Microservicios -->
+    <div class="certificado">
+      <img src="images/Certificado - Expositor GUTIERREZ CUETTI_page-0001.jpg" alt="Certificado Expositor">
+      <p><strong>Certificado de Expositor - Cómo crear despliegues de microservicios automatizados</strong></p>
+      <p>
+        Certificado otorgado por la UTN FRC por haber sido expositor en la conferencia “Cómo crear despliegues de microservicios
+        automatizados y no morir en el intento”, donde presenté prácticas y herramientas para despliegues automatizados y seguridad en
+        microservicios.
+      </p>
+    </div>
+
+    <!-- 4. Latin Code Week -->
+    <div class="certificado">
+      <img src="images/certificado2.jpeg" alt="Certificado Latin Code Week">
+      <p><strong>Certificado en Latin Code Week</strong></p>
+      <p>
+        Experiencia de trabajo en equipo donde desarrollamos una aplicación orientada al cambio climático. Participé en
+        la definición estratégica del proyecto, liderazgo puntual, división de tareas y gestión del tiempo disponible.
+      </p>
+    </div>
+
+    <!-- 5. Excel -->
+    <div class="certificado">
+      <img src="images/certificado3.jpeg" alt="Certificado Excel">
+      <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Excel</strong></p>
+      <p>
+        Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de Córdoba. Incluye manejo de fórmulas,
+        gráficos, macros y herramientas avanzadas para optimizar tareas en hojas de cálculo.
+      </p>
+    </div>
+
+    <!-- 6. Word -->
+    <div class="certificado">
+      <img src="images/certificado1.jpeg" alt="Certificado Word">
+      <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Word</strong></p>
+      <p>
+        Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de Córdoba. Incluye edición y formato
+        de texto, gestión de páginas, opciones de impresión y herramientas avanzadas del editor.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<div id="modal-certificado" class="modal-certificado">
+  <span class="close-certificado" onclick="closeModalCertificado()">&times;</span>
+  <div id="caption-certificado"></div>
+</div>
+
 
     </div>
     </main>
@@ -332,6 +461,9 @@
 
     <script src="animaciones.js"></script>
     <script src="scripts.js"></script>
+    <script src="skills.js"></script>
+    <script src="typewriter.js"></script>
 
 </body>
 </html>
+
