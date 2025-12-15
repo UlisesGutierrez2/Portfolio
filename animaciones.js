@@ -1,192 +1,311 @@
-// Índice inicial y configuración del slider
-let index = 0;
-const itemsToShow = 2; // Número de iconos visibles a la vez
-const slider = document.querySelector('.slider');
-const sliderImages = document.querySelectorAll('.icon');
-const totalImages = sliderImages.length;
+// ==========================================
+// 1. EFECTOS VISUALES (Se ejecutan siempre)
+// ==========================================
 
-// Función para mover el slider
-function moveSlide(direction) {
-    index += direction;
-
-    // Si llega al final, volver al inicio
-    if (index >= totalImages - itemsToShow + 1) {
-        index = 0; // Reiniciar al inicio
-    } else if (index < 0) {
-        index = totalImages - itemsToShow; // Mover al último conjunto
-    }
-
-    // Calcular el desplazamiento en píxeles
-    const offset = -index * (sliderImages[0].offsetWidth + 20); // 20px es el margen entre las imágenes
-    slider.style.transform = `translateX(${offset}px)`;
-}
-
-// Función para abrir el modal y mostrar la imagen
-function openModal(img) {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modal-img");
-    const captionText = document.getElementById("caption");
-
-    modal.style.display = "block";
-    modalImg.src = img.src;
-    captionText.innerHTML = img.alt;
-}
-
-// Función para cerrar el modal
-function closeModal() {
-    const modal = document.getElementById("modal");
-    modal.style.display = "none";
-}
-
-// Reducir tamaño del encabezado al hacer scroll
-window.onscroll = function () {
-    const header = document.querySelector(".header");
-    const firstSection = document.querySelector("section");
-
-    if (window.scrollY > 50) {
-        header.classList.add("smaller"); // Reducir el tamaño de la cabecera
-        firstSection.style.paddingTop = "150px"; // Ajusta este valor según el diseño
-    } else {
-        header.classList.remove("smaller"); // Restaurar tamaño original
-        firstSection.style.paddingTop = "300px"; // Ajusta este valor según el diseño
-    }
-};
-
-// Ajustar el slider al cambiar el tamaño de la ventana
-window.addEventListener("resize", () => {
-    const offset = -index * (sliderImages[0].offsetWidth + 20);
-    slider.style.transform = `translateX(${offset}px)`;
-});
-
-// Efecto interactivo de fondo con el movimiento del mouse
+// Efecto de fondo interactivo
 document.addEventListener("mousemove", (e) => {
     const x = (e.clientX / window.innerWidth) * 100;
     const y = (e.clientY / window.innerHeight) * 100;
-
     document.body.style.backgroundPosition = `${x}% ${y}%`;
 });
 
-// Detecta el scroll y aplica la clase "smaller" al header
+// Reducir cabecera al hacer scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
+    const firstSection = document.querySelector("section");
+    
     if (window.scrollY > 50) {
-        header.classList.add('smaller');  // Agrega la clase cuando haga scroll
+        if(header) header.classList.add('smaller');
+        if(firstSection) firstSection.style.paddingTop = "150px"; 
     } else {
-        header.classList.remove('smaller');  // Elimina la clase cuando vuelva al inicio
+        if(header) header.classList.remove('smaller');
+        if(firstSection) firstSection.style.paddingTop = "300px"; 
+    }
+});
+
+// ==========================================
+// 2. LÓGICA PRINCIPAL (Al cargar la página)
+// ==========================================
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Scripts inicializados correctamente.");
+
+    // ---------------------------------------------
+    // A. GALERÍA DE PROYECTOS (MODAL LIGHTBOX)
+    // ---------------------------------------------
+    const projModal = document.getElementById("galleryModal");
+    
+    // Solo ejecutamos esto si el modal existe en el HTML
+    if (projModal) {
+        const projImg = projModal.querySelector("#modalImage");
+        const projTitle = projModal.querySelector("#modalTitle");
+        const projCountCurrent = projModal.querySelector("#currentIndex");
+        const projCountTotal = projModal.querySelector("#totalImages");
+        
+        // Buscamos los botones DENTRO del modal para no afectar a "Acerca de mí"
+        const projCloseBtn = projModal.querySelector(".close-modal");
+        const projPrevBtn = projModal.querySelector(".prev-btn");
+        const projNextBtn = projModal.querySelector(".next-btn");
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // Función para pintar la imagen
+        function showProjectImage() {
+            if (!projImg || currentGallery.length === 0) return;
+            projImg.src = currentGallery[currentIndex];
+            if (projCountCurrent) projCountCurrent.textContent = currentIndex + 1;
+            if (projCountTotal) projCountTotal.textContent = currentGallery.length;
+        }
+
+        // Función para mover (Next/Prev)
+        function moveProjectGallery(direction) {
+            if (currentGallery.length === 0) return;
+            currentIndex += direction;
+            // Bucle infinito
+            if (currentIndex >= currentGallery.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentGallery.length - 1;
+            showProjectImage();
+        }
+
+        // 1. Detectar clic en botones "Ver Más"
+        document.querySelectorAll('.open-gallery').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const title = this.getAttribute('data-title');
+                const galleryRaw = this.getAttribute('data-gallery');
+
+                try {
+                    currentGallery = JSON.parse(galleryRaw) || [];
+                } catch (error) {
+                    console.error("Error al leer imágenes:", error);
+                    return;
+                }
+
+                if (currentGallery.length === 0) {
+                    alert("No hay imágenes para mostrar.");
+                    return;
+                }
+
+                // Configurar y abrir
+                currentIndex = 0;
+                if (projTitle) projTitle.textContent = title;
+                showProjectImage();
+                projModal.style.display = "flex"; 
+            });
+        });
+
+        // 2. Eventos de controles (Flechas dentro del modal)
+        if (projPrevBtn) projPrevBtn.addEventListener("click", () => moveProjectGallery(-1));
+        if (projNextBtn) projNextBtn.addEventListener("click", () => moveProjectGallery(1));
+        
+        // 3. Cerrar modal
+        const closeProjectModal = () => { projModal.style.display = "none"; };
+        
+        if (projCloseBtn) projCloseBtn.addEventListener("click", closeProjectModal);
+        projModal.addEventListener("click", (e) => {
+            if (e.target === projModal) closeProjectModal();
+        });
+
+        // Teclado
+        document.addEventListener('keydown', (e) => {
+            if (projModal.style.display === "flex") {
+                if (e.key === "Escape") closeProjectModal();
+                if (e.key === "ArrowRight") moveProjectGallery(1);
+                if (e.key === "ArrowLeft") moveProjectGallery(-1);
+            }
+        });
+    }
+
+    // ---------------------------------------------
+    // B. MODAL DE CERTIFICADOS
+    // ---------------------------------------------
+    const certModal = document.getElementById("modal-certificado");
+    
+    if (certModal) {
+        const certCaption = document.getElementById("caption-certificado");
+        const certCloseBtn = certModal.querySelector(".close-certificado");
+
+        document.querySelectorAll(".certificados-container .certificado img").forEach(img => {
+            img.addEventListener("click", () => {
+                certModal.style.display = "flex";
+                
+                let certModalImg = document.getElementById("modal-image-certificado");
+                if (!certModalImg) {
+                    certModalImg = document.createElement("img");
+                    certModalImg.id = "modal-image-certificado";
+                    // Insertar antes del texto si existe
+                    if (certCaption) certModal.insertBefore(certModalImg, certCaption);
+                    else certModal.appendChild(certModalImg);
+                }
+                
+                certModalImg.src = img.src;
+                certModalImg.alt = img.alt;
+            });
+        });
+
+        const closeCertModal = () => { certModal.style.display = "none"; };
+
+        if (certCloseBtn) certCloseBtn.addEventListener("click", closeCertModal);
+        certModal.addEventListener("click", (e) => {
+            if (e.target === certModal) closeCertModal();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (certModal.style.display === "flex" && e.key === "Escape") closeCertModal();
+        });
+    }
+
+    // ---------------------------------------------
+    // C. SLIDER DE ICONOS (Solución al problema de flechas)
+    // ---------------------------------------------
+    // Solo ejecutamos esto si existe un elemento .slider en el HTML
+    // Esto evita que aparezcan flechas o errores en "Acerca de mí"
+    const sliderContainer = document.querySelector('.slider');
+    
+    if (sliderContainer) {
+        let sliderIndex = 0;
+        const itemsToShow = 2;
+        const sliderImages = document.querySelectorAll('.icon');
+        const totalImages = sliderImages.length;
+
+        // Solo si hay imágenes para mover
+        if (totalImages > 0) {
+            // Función interna para recalcular posición
+            const updateSliderPosition = () => {
+                const offset = -sliderIndex * (sliderImages[0].offsetWidth + 20);
+                sliderContainer.style.transform = `translateX(${offset}px)`;
+            };
+
+            // Aquí puedes agregar lógica de botones SI tu HTML tiene botones para este slider específico
+            // Si no, no agregamos nada para evitar conflictos.
+            
+            window.addEventListener("resize", updateSliderPosition);
+        }
     }
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const galleries = {
-        "gallery-1": [
-            "https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg",
-            "images/Swagger.png"
-        ],
-        "gallery-2": [
-            "images/proyecto localidades inicio.png",
-            "images/proyecto localidades vencimientos.png",
-            "images/proyecto localidades buscar inmuebles.png",
-            "images/proyecto localidades contribuyentes.png",
-            "images/proyecto localidades buscar localidades.png",
-            "images/proyecto localidades login.png"
-        ]
-    };
+    console.log("Inicializando Portfolio...");
 
-    let currentGallery = [];
-    let currentIndex = 0;
+    // ==========================================
+    // 1. GALERÍA DE PROYECTOS (BOTÓN VER MÁS)
+    // ==========================================
+    const projModal = document.getElementById("galleryModal");
+    
+    // Solo ejecutamos si el modal existe (seguridad)
+    if (projModal) {
+        const projImg = projModal.querySelector("#modalImage");
+        const projTitle = projModal.querySelector("#modalTitle");
+        const projCountCurrent = projModal.querySelector("#currentIndex");
+        const projCountTotal = projModal.querySelector("#totalImages");
+        const projCloseBtn = projModal.querySelector(".close-modal");
+        const projPrevBtn = projModal.querySelector(".prev-btn");
+        const projNextBtn = projModal.querySelector(".next-btn");
 
-    // Asocia eventos de clic a cada galería
-    Object.keys(galleries).forEach((galleryId) => {
-        const thumbnails = document.querySelectorAll(`#${galleryId} .thumbnail`);
-        const images = galleries[galleryId];
+        let currentGallery = [];
+        let currentIndex = 0;
 
-        thumbnails.forEach((thumbnail, index) => {
-            thumbnail.addEventListener("click", function (event) {
-                event.preventDefault();
-                currentGallery = images;
-                currentIndex = index;
+        // Mostrar imagen
+        function showProjectImage() {
+            if (!projImg || currentGallery.length === 0) return;
+            projImg.src = currentGallery[currentIndex];
+            if (projCountCurrent) projCountCurrent.textContent = currentIndex + 1;
+            if (projCountTotal) projCountTotal.textContent = currentGallery.length;
+        }
 
-                const modal = document.getElementById("image-modal");
-                const modalImg = document.getElementById("modal-img");
-                const caption = document.getElementById("caption");
+        // Mover galería
+        function moveGallery(dir) {
+            if (currentGallery.length === 0) return;
+            currentIndex += dir;
+            if (currentIndex >= currentGallery.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentGallery.length - 1;
+            showProjectImage();
+        }
 
-                modal.style.display = "flex";
-                modalImg.src = currentGallery[currentIndex];
-                caption.textContent = `Imagen ${currentIndex + 1}`;
+        // Detectar CLIC en "Ver Más"
+        document.querySelectorAll('.open-gallery').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const title = this.getAttribute('data-title');
+                const galleryRaw = this.getAttribute('data-gallery');
+
+                try {
+                    currentGallery = JSON.parse(galleryRaw) || [];
+                } catch (err) {
+                    console.error("Error leyendo imágenes:", err);
+                    return;
+                }
+
+                if (currentGallery.length === 0) {
+                    alert("No hay imágenes cargadas.");
+                    return;
+                }
+
+                currentIndex = 0;
+                if (projTitle) projTitle.textContent = title;
+                showProjectImage();
+                projModal.style.display = "flex"; // Abre el modal
             });
         });
-    });
 
-    // Cierra el modal
-    function closeModal(event) {
-        const modal = document.getElementById("image-modal");
-        if (event.target === modal || event.target.classList.contains("close")) {
-            modal.style.display = "none";
+        // Controles dentro del modal
+        if(projPrevBtn) projPrevBtn.addEventListener("click", () => moveGallery(-1));
+        if(projNextBtn) projNextBtn.addEventListener("click", () => moveGallery(1));
+        
+        // Cerrar modal
+        const closeProj = () => { projModal.style.display = "none"; };
+        if(projCloseBtn) projCloseBtn.addEventListener("click", closeProj);
+        projModal.addEventListener("click", (e) => {
+            if (e.target === projModal) closeProj();
+        });
+    }
+
+    // ==========================================
+    // 2. MODAL DE CERTIFICADOS
+    // ==========================================
+    const certModal = document.getElementById("modal-certificado");
+    if (certModal) {
+        const certClose = certModal.querySelector(".close-certificado");
+        
+        document.querySelectorAll(".certificados-container .certificado img").forEach(img => {
+            img.addEventListener("click", () => {
+                certModal.style.display = "flex";
+                let certImg = document.getElementById("modal-image-certificado");
+                if (!certImg) {
+                    certImg = document.createElement("img");
+                    certImg.id = "modal-image-certificado";
+                    certModal.appendChild(certImg);
+                }
+                certImg.src = img.src;
+            });
+        });
+
+        const closeCert = () => { certModal.style.display = "none"; };
+        if(certClose) certClose.addEventListener("click", closeCert);
+        certModal.addEventListener("click", (e) => {
+            if (e.target === certModal) closeCert();
+        });
+    }
+
+    // ==========================================
+    // 3. EFECTOS GLOBALES (Scroll y Fondo)
+    // ==========================================
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        const firstSec = document.querySelector("section");
+        if (window.scrollY > 50) {
+            if(header) header.classList.add('smaller');
+            if(firstSec) firstSec.style.paddingTop = "150px"; 
+        } else {
+            if(header) header.classList.remove('smaller');
+            if(firstSec) firstSec.style.paddingTop = "300px"; 
         }
-    }
-    document.getElementById("image-modal").addEventListener("click", closeModal);
-
-    // Cambia la imagen en el modal
-    function changeImage(direction) {
-        const modalImg = document.getElementById("modal-img");
-        const caption = document.getElementById("caption");
-
-        currentIndex = (currentIndex + direction + currentGallery.length) % currentGallery.length;
-        modalImg.src = currentGallery[currentIndex];
-        caption.textContent = `Imagen ${currentIndex + 1}`;
-    }
-
-    document.getElementById("prevBtn").addEventListener("click", function (event) {
-        event.preventDefault();
-        changeImage(-1);
     });
-    document.getElementById("nextBtn").addEventListener("click", function (event) {
-        event.preventDefault();
-        changeImage(1);
+
+    document.addEventListener("mousemove", (e) => {
+        const x = (e.clientX / window.innerWidth) * 100;
+        const y = (e.clientY / window.innerHeight) * 100;
+        document.body.style.backgroundPosition = `${x}% ${y}%`;
     });
 });
-
-// Asegurarse de que el DOM está cargado antes de ejecutar el script
-document.addEventListener("DOMContentLoaded", () => {
-    const modalCertificado = document.getElementById("modal-certificado");
-    const captionCertificado = document.getElementById("caption-certificado");
-  
-    // Seleccionar todas las imágenes dentro de .certificados-container
-    document.querySelectorAll(".certificados-container .certificado img").forEach(img => {
-      img.addEventListener("click", () => {
-        modalCertificado.style.display = "flex"; // Mostrar el modal
-        let modalImg = document.getElementById("modal-image-certificado");
-  
-        // Si la imagen modal no existe, crearla
-        if (!modalImg) {
-          modalImg = document.createElement("img");
-          modalImg.id = "modal-image-certificado";
-          modalCertificado.insertBefore(modalImg, captionCertificado);
-        }
-  
-        // Actualizar la fuente y el alt de la imagen modal
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-  
-        // Agregar texto de subtítulo
-//       captionCertificado.textContent = img.alt;
-      });
-    });
-  
-    // Función para cerrar el modal
-    function closeModalCertificado() {
-      modalCertificado.style.display = "none";
-    }
-  
-    // Vincular el cierre del modal al clic fuera de la imagen
-    modalCertificado.addEventListener("click", event => {
-      if (event.target === modalCertificado) {
-        closeModalCertificado();
-      }
-    });
-  
-    // Asignar función de cierre al botón
-    document.querySelector(".close-certificado").addEventListener("click", closeModalCertificado);
-  });
-  

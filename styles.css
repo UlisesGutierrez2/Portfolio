@@ -15,7 +15,7 @@ body {
 header {
     text-align: center;
     padding: 1em;
-    background: #a213e46b;
+    /*background: #a213e46b;*/
     color: #ffffff;
 }
 main {
@@ -171,7 +171,7 @@ main {
 
 .certificado strong {
     font-size: 1.1rem;
-    color: #131414; /* Un color para resaltar el título del certificado */
+    color: #7cd8d8; /* Un color para resaltar el título del certificado */
 }
 
 .certificados-container {
@@ -353,7 +353,7 @@ nav {
     left: 0;
     width: 100%;
     height: 300px; /* Ajusta el alto según lo necesites */
-    background-image: url('images/cabecera.jpg'); /* Ruta de tu imagen */
+    background-image: url('images/cabecera.png'); /* Ruta de tu imagen */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -372,7 +372,7 @@ nav {
     padding: 15px 0; /* Tamaño reducido */
     height: 150px; /* Ajusta este valor al nuevo tamaño */
     background-position:center; /* Ajuste visual de la imagen */
-    background-image: url(images/cabecera.jpg);
+    background-image: url(images/cabecera.png);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -849,10 +849,11 @@ footer section {
 }
 
 .about-content {
-    max-width: 100%;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
+    box-sizing:border-box;
 }
 
 .about-intro {
@@ -876,7 +877,7 @@ footer section {
 
 .about-highlights {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
     margin-top: 2rem;
     width: 100%;
@@ -885,12 +886,14 @@ footer section {
 .highlight-item {
     background: rgba(255, 255, 255, 0.05);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid rgba(162, 19, 228, 0.3);
     transition: all 0.3s ease;
     min-height: 300px;
     display: flex;
     flex-direction: column;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .highlight-item:hover {
@@ -902,12 +905,18 @@ footer section {
 
 .highlight-item h4 {
     color: #00ffcc;
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
+    font-size: 0.95rem;      /* Un tamaño equilibrado */
+    min-height: 3.5rem;      /* Altura justa para 3 líneas */
+    margin-bottom: 1rem;
     margin-top: 0;
-    min-height: 1.5rem;
+    
     display: flex;
-    align-items: center;
+    align-items: center;     /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    text-align: center;
+    width: 100%;
+    
+    hyphens: auto;           /* Permite guiones si es estrictamente necesario */
 }
 
 .highlight-item p {
@@ -989,13 +998,19 @@ footer section {
 
 .proyectos-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 2rem;
+    justify-items: center;
 }
 
 .project-card {
+    width: 100%;
+    max-width: 330px;
+
     background: rgba(162, 19, 228, 0.05);
     border: 1px solid rgba(162, 19, 228, 0.3);
     border-radius: 12px;
@@ -1132,8 +1147,9 @@ footer section {
 @media (max-width: 768px) {
     .proyectos-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2.5rem;
         padding: 0 15px;
+        justify-items: center;
     }
     
     #proyectos h2 {
@@ -1230,3 +1246,312 @@ footer section {
   to { opacity: 1; }
 }
 
+
+
+/* === 1. ESTILOS BASE Y FONDO PROFESIONAL === */
+body {
+    margin: 0;
+    padding: 0;
+    /* Fondo sólido oscuro (Dark Slate Blue) - Serio y descansa la vista */
+    background-image: none; 
+   /* background-color: #0f172a; */
+    /* Tipografía legible para el cuerpo del texto (No usar Orbitron aquí) */
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #cbd5e1; /* Gris claro, alto contraste pero suave */
+}
+
+/* Mantenemos Orbitron SOLO para títulos grandes para identidad tech */
+h1, h2, h3, h4 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    text-shadow: none; /* Quitamos el neón excesivo */
+    letter-spacing: 1px;
+}
+
+/* Limpieza de ruido visual en textos generales */
+p, ul, li, a {
+    font-family: 'Segoe UI', 'Roboto', sans-serif; /* Lectura fácil */
+    text-shadow: none !important; /* FORZAR quitar el brillo neón de los textos */
+    color: #cbd5e1;
+    font-weight: 400;
+}
+
+/* Color de acento para títulos (Azul "DevOps" en lugar de Verde Neón) */
+h2, h3 {
+    color: #38bdf8; /* Azul cielo profesional */
+}
+
+
+
+/* === 2. FOOTER PROFESIONAL === */
+footer {
+    /* Fondo más oscuro que el body para anclar la página */
+    background-color: #020617; 
+    border-top: 1px solid #1e293b; /* Línea sutil de separación */
+    color: #94a3b8; /* Texto gris medio */
+    padding: 3rem 1rem; /* Espaciado generoso */
+    text-align: center;
+    margin-top: 4rem; /* Separación del contenido anterior */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    color: #94a3b8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Si tienes enlaces en el footer */
+footer a {
+    color: #38bdf8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* === 3. MEJORA DE TARJETAS (Certificados y Proyectos) === */
+.certificado, .project-card, .highlight-item, .skill-tag {
+    /* Fondo sólido ligeramente más claro que el body */
+    /*background: #1e293b !important;*/ 
+    border: 1px solid #334155 !important; /* Borde sutil, no neón */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 8px !important;
+}
+
+/* Efecto Hover elegante */
+.certificado:hover, .project-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8 !important; /* Borde azul al pasar el mouse */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Ajuste de texto dentro de las tarjetas */
+.certificado p, .project-description, .highlight-item p {
+    color: #cbd5e1 !important;
+}
+
+/* === FIX: CORRECCIÓN DE TEXTO CORTADO EN "ACERCA DE MÍ" === */
+
+/* Apuntamos a los posibles encabezados dentro de esa sección */
+#acercademi h3, 
+#acercademi h4,
+.about-intro h3, 
+.about-intro h4 {
+    /* Permite que el texto salte a una nueva línea si no cabe */
+    white-space: normal !important; 
+    
+    /* Asegura que el contenido que sobresale no se oculte */
+    overflow: visible !important; 
+    text-overflow: clip !important; 
+    
+    /* Asegura que ocupe el ancho disponible pero no más del 100% */
+    width: auto;
+    max-width: 100%;
+    
+    /* Si el texto ocupa dos líneas, mejora el espaciado vertical */
+    line-height: 1.4; 
+    
+    /* Mantiene el centrado */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Aseguramos que el contenedor padre permita el flujo */
+.about-intro {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+}
+
+/* =========================================
+   NUEVO FOOTER CON ÍCONOS
+   ========================================= */
+
+footer {
+    background-color: #020617; /* Fondo muy oscuro */
+    color: #cbd5e1;
+    padding: 3rem 1rem 1.5rem 1rem; /* Espaciado cómodo */
+    text-align: center;
+    border-top: 1px solid rgba(56, 189, 248, 0.1); /* Línea divisoria sutil */
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+/* Estilo de los Íconos Sociales */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Espacio entre íconos */
+    margin-bottom: 2rem;
+}
+
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Círculos perfectos */
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil */
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease; /* Animación suave */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.socials a:hover {
+    background-color: #38bdf8; /* Fondo Cian Tech */
+    color: #0f172a; /* Ícono oscuro para contraste */
+    transform: translateY(-5px); /* Se eleva un poco */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); /* Resplandor neón */
+    border-color: #38bdf8;
+}
+
+/* Copyright final */
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+}
+
+
+
+/* ========================================= */
+/* ESTILOS DEL MODAL DE GALERÍA (LIGHTBOX)   */
+/* ========================================= */
+.gallery-modal {
+    display: none; /* ¡IMPORTANTE! Esto oculta las flechas al inicio */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#modalTitle {
+    color: #00ffcc;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #00ffcc;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.modal-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80%; /* Altura máxima para la imagen */
+}
+
+#modalImage {
+    max-width: 90%;
+    max-height: 100%;
+    border: 2px solid #a213e4;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(162, 19, 228, 0.4);
+    object-fit: contain;
+}
+
+/* Flechas */
+.nav-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: 1px solid #00ffcc;
+    font-size: 2rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 50%;
+    user-select: none;
+    position: absolute; /* Para fijarlas a los lados de la imagen */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10001;
+}
+
+.nav-btn:hover {
+    background: #00ffcc;
+    color: #000;
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+/* Botón Cerrar */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #dd8181;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10002;
+}
+
+.modal-counter {
+    color: #ebebeb;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    .nav-btn { padding: 5px 10px; font-size: 1.5rem; }
+    .prev-btn { left: 5px; }
+    .next-btn { right: 5px; }
+}
+
+/* ===== LAYOUT ESCRITORIO (AGREGAR ESTO) ===== */
+.proyectos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 1rem;
+    justify-items: center;
+}

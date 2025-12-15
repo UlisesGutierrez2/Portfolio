@@ -6,6 +6,7 @@
     <title>Mi Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="animaciones.js"></script>
 
 
@@ -48,7 +49,8 @@
     body {
         margin: 0;
         height: 100vh;
-        background-image: url('https://img.freepik.com/fotos-premium/fondo-abstracto-diseno-imagenes-fondo-pantalla-ai-generado_643360-132644.jpg'); /* Cambia a tu imagen */
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/fondo.png'); /* Cambia a tu imagen */
+       /* background-image: url(/images/fondo.png); /* Cambia a tu imagen */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -93,11 +95,11 @@
 
               <div class="about-highlights">
                 <div class="highlight-item">
-                  <h4>💻 Desarrollo de Software</h4>
+                  <h4>💻 Desarrollo Software</h4>
                   <p>Experiencia en backend con <span class="keyword">Spring Boot</span> y <span class="keyword">Node.js/Express</span>. Diseño de <span class="keyword">APIs RESTful</span>, arquitecturas de <span class="keyword">microservicios</span> y <span class="keyword">bases de datos relacionales</span>. Proyectos <span class="keyword">full-stack</span> implementados desde cero con buenas prácticas.</p>
                 </div>
                 <div class="highlight-item">
-                  <h4>⚙️ DevOps & Infraestructura</h4>
+                  <h4>⚙️ DevOps & Cloud</h4>
                   <p>Especialización en containerización con <span class="keyword">Docker</span>, orquestación con <span class="keyword">Kubernetes</span>, <span class="keyword">CI/CD en GitLab</span> y automatización de despliegues. Experiencia con <span class="keyword">AWS</span> y prácticas de seguridad en <span class="keyword">microservicios</span>.</p>
                 </div>
                 <div class="highlight-item">
@@ -291,62 +293,87 @@
             
       <!-- Proyectos -->
       <section id="proyectos">
-            <h2>Proyectos</h2>
-            <div class="proyectos-grid">
-              
-              <!-- Proyecto 1: Alquiler de Bicicletas -->
-              <div class="project-card">
-                <div class="project-image">
-                  <img src="https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg" alt="Sistema de Alquiler de Bicicletas">
-                  <div class="project-overlay">
-                    <a href="https://github.com/UlisesGutierrez2/Proyecto-de-Backend.git" target="_blank" class="project-btn">Ver GitHub</a>
-                  </div>
+    <h2>Proyectos</h2>
+    <div class="proyectos-grid">
+
+      <div class="project-card">
+            <div class="project-image">
+                <img src="images/devops.png" alt="Arquitectura DevOps y CI/CD">
+                <div class="project-overlay">
+                    <button class="project-btn open-gallery" 
+                        data-title="Arquitectura de Microservicios & CI/CD"
+                        data-gallery='["images/devops pipeline.png", "images/devops.png",  "images/devops listado tareas.png", "images/devops alta tarea.png"]'>
+                        Ver Más
+                    </button>
                 </div>
-                <div class="project-content">
-                  <h3>Sistema de Alquiler de Bicicletas</h3>
-                  <div class="tech-badges">
+            </div>
+            <div class="project-content">
+                <h3>Arquitectura de Microservicios & CI/CD</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Docker</span>
+                    <span class="tech-badge">Nginx</span>
+                    <span class="tech-badge">GitLab CI</span>
+                    <span class="tech-badge">DevSecOps</span>
+                </div>
+                <p class="project-description">
+                    Despliegue de microservicios orquestados con Docker Compose y Nginx como Proxy Inverso. Implementación de pipeline CI/CD completo con escaneo de seguridad (Trivy/Checkov) y gestión de secretos.
+                </p>
+                <ul class="project-highlights">
+                    <li>✓ Pipeline automatizado (Build, Test, Deploy)</li>
+                    <li>✓ Seguridad DevSecOps y escaneo de vulnerabilidades</li>
+                    <li>✓ Orquestación de contenedores y Proxy Inverso</li>
+                </ul>
+            </div>
+      </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://img.freepik.com/vector-premium/alquiler-bicicletas-ciudad-sistema-electronico-alquiler-bicicletas-alquiler-personas-bicicletas-servicio-inteligente-ilustracion-dibujos-animados_169479-332.jpg" alt="Sistema de Alquiler de Bicicletas">
+                <div class="project-overlay">
+                    <a href="https://github.com/UlisesGutierrez2/Proyecto-de-Backend.git" target="_blank" class="project-btn">Ver GitHub</a>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Sistema de Alquiler de Bicicletas</h3>
+                <div class="tech-badges">
                     <span class="tech-badge">Spring Boot</span>
                     <span class="tech-badge">JPA</span>
                     <span class="tech-badge">SQLite</span>
-                  </div>
-                  <p class="project-description">Plataforma de alquiler de bicicletas con cálculo dinámico de precios basado en tiempo, distancia entre estaciones y promociones. Incluye conversión de moneda y gestión de múltiples estaciones.</p>
-                  <ul class="project-highlights">
+                </div>
+                <p class="project-description">Plataforma de alquiler con cálculo dinámico de precios basado en tiempo y distancia. Incluye conversión de moneda y gestión de múltiples estaciones.</p>
+                <ul class="project-highlights">
                     <li>✓ Sistema de precios dinámico e inteligente</li>
                     <li>✓ Gestión de estaciones distribuidas</li>
                     <li>✓ Conversión de moneda en tiempo real</li>
-                  </ul>
-                </div>
-              </div>
+                </ul>
+            </div>
+        </div>
 
-              <!-- Proyecto 2: Gestión de Contribuyentes -->
-              <div class="project-card">
-                <div class="project-image">
-                  <img src="images/proyecto localidades inicio.png" alt="Sistema de Gestión de Contribuyentes">
-                  <div class="project-overlay">
+        <div class="project-card">
+            <div class="project-image">
+                <img src="images/proyecto localidades inicio.png" alt="Sistema de Gestión de Contribuyentes">
+                <div class="project-overlay">
                     <a href="https://github.com/UlisesGutierrez2/Proyecto-Inmuebles.git" target="_blank" class="project-btn">Ver GitHub</a>
-                  </div>
                 </div>
-                <div class="project-content">
-                  <h3>Gestión de Contribuyentes y Propiedades</h3>
-                  <div class="tech-badges">
+            </div>
+            <div class="project-content">
+                <h3>Gestión de Contribuyentes</h3>
+                <div class="tech-badges">
                     <span class="tech-badge">React</span>
                     <span class="tech-badge">Express</span>
                     <span class="tech-badge">SQLite</span>
                     <span class="tech-badge">JWT</span>
-                  </div>
-                  <p class="project-description">Sistema administrativo para gestión de contribuyentes con propiedades en deuda en Córdoba. Incluye control de acceso por roles, gestión de vencimientos y reportes detallados.</p>
-                  <ul class="project-highlights">
+                </div>
+                <p class="project-description">Sistema administrativo para gestión de contribuyentes con propiedades en deuda. Incluye control de acceso por roles y reportes detallados.</p>
+                <ul class="project-highlights">
                     <li>✓ Control de acceso basado en roles (RBAC)</li>
                     <li>✓ Autenticación con JWT y seguridad</li>
-                    <li>✓ Gestión completa de inmuebles y localidades</li>
-                  </ul>
-                </div>
-              </div>
+                    <li>✓ Gestión completa de inmuebles</li>
+                </ul>
+            </div>
+        </div>
 
-            </div>
-            </div>
-          
-          </div>
+    </div> </section>
         
         <!-- Modal para ver imágenes en tamaño ampliado -->
         <div id="image-modal" class="modal">
@@ -387,8 +414,30 @@
         Ver credencial en Credly
       </a>
     </div>
+    <!-- 2. AWS Academy -->
+<div class="certificado">
+  <div class="img-wrapper">
+    <img class="certificado-aws"
+         src="https://images.credly.com/size/680x680/images/e3541a0c-dd4a-4820-8052-5001006efc85/blob"
+         alt="AWS Academy Graduate - Cloud Foundations Badge">
+  </div>
 
-    <!-- 2. Argentina Programa -->
+  <p>
+    <strong>AWS Academy Graduate – Cloud Foundations</strong>
+  </p>
+
+  <p>
+Certificación Técnica AWS Cloud Foundations emitida por AWS Academy. Acredita conocimientos en infraestructura global, economía y seguridad de la nube, junto con el despliegue de servicios de cómputo, redes y bases de datos. Incluye principios de arquitectura, monitoreo y escalado automático, consolidando el aprendizaje mediante laboratorios prácticos en un entorno real de AWS.  </p>
+
+
+
+  <a href="https://www.credly.com/earner/earned/badge/6b387bc1-c60e-433e-97c7-1c3054893505"
+     target="_blank" class="credly-link">
+    Ver credencial en Credly
+  </a>
+</div>
+
+    <!-- 3. Argentina Programa -->
     <div class="certificado">
       <img src="images/argentina programa.png" alt="Certificado Argentina Programa">
       <p><strong>Certificado Argentina Programa</strong></p>
@@ -398,7 +447,7 @@
       </p>
     </div>
 
-    <!-- 3. Expositor Microservicios -->
+    <!-- 4. Expositor Microservicios -->
     <div class="certificado">
       <img src="images/Certificado - Expositor GUTIERREZ CUETTI_page-0001.jpg" alt="Certificado Expositor">
       <p><strong>Certificado de Expositor - Cómo crear despliegues de microservicios automatizados</strong></p>
@@ -409,7 +458,7 @@
       </p>
     </div>
 
-    <!-- 4. Latin Code Week -->
+    <!-- 5. Latin Code Week -->
     <div class="certificado">
       <img src="images/certificado2.jpeg" alt="Certificado Latin Code Week">
       <p><strong>Certificado en Latin Code Week</strong></p>
@@ -419,7 +468,7 @@
       </p>
     </div>
 
-    <!-- 5. Excel -->
+    <!-- 6. Excel -->
     <div class="certificado">
       <img src="images/certificado3.jpeg" alt="Certificado Excel">
       <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Excel</strong></p>
@@ -429,15 +478,6 @@
       </p>
     </div>
 
-    <!-- 6. Word -->
-    <div class="certificado">
-      <img src="images/certificado1.jpeg" alt="Certificado Word">
-      <p><strong>Certificado de Operador de Aplicaciones Microsoft Office - Word</strong></p>
-      <p>
-        Certificado otorgado por el Concejo Profesional de Ciencias Informáticas de Córdoba. Incluye edición y formato
-        de texto, gestión de páginas, opciones de impresión y herramientas avanzadas del editor.
-      </p>
-    </div>
 
   </div>
 </section>
@@ -450,14 +490,46 @@
 
     </div>
     </main>
-    <footer>
-      <section id="contacto">
-        <p>Contacto: <a href="mailto:tuemail@example.com">umatheo.gc@gmail.com</a></p>
-        <p>Linkedin: <a href="https://www.linkedin.com/in/ulises-gutierrez-a89b19332/">Más Información sobre mí</a></p>
-        <p>Teléfono de Contacto: 351 674-4529</a></p>
-        <p>GitHub: <a href = "https://github.com/UlisesGutierrez2">Más proyectos personales</a></p>
-      </section>
+<footer>
+        <div class="footer-content">
+            <h3>ULISES MATHEO GUTIERREZ CUETTI</h3>
+            <p>Ingeniero en Sistemas | DevOps | Full Stack</p>
+
+            <div class="socials">
+                <a href="mailto:umatheo.gco@gmail.com" target="_blank" title="Enviar Correo">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/5493511234567" target="_blank" title="WhatsApp / Teléfono">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ulises-gutierrez-a89b19332/" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/UlisesGutierrez2" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 - Diseñado y Desarrollado por Ulises G.</p>
+        </div>
     </footer>
+
+    <div id="galleryModal" class="gallery-modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content-wrapper">
+            <h3 id="modalTitle">Título del Proyecto</h3>
+            
+            <div class="modal-image-container">
+                <button class="nav-btn prev-btn">&#10094;</button>
+                <img id="modalImage" src="" alt="Captura del proyecto">
+                <button class="nav-btn next-btn">&#10095;</button>
+            </div>
+            
+            <div class="modal-counter">Imagen <span id="currentIndex">1</span> de <span id="totalImages">3</span></div>
+        </div>
+    </div>
 
     <script src="animaciones.js"></script>
     <script src="scripts.js"></script>
@@ -466,4 +538,3 @@
 
 </body>
 </html>
-
