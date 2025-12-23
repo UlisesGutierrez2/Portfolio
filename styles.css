@@ -1,13 +1,9 @@
 body {
-    font-family: 'Orbitron', sans-serif;    margin: 0;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #dd8181;
-
-
-    h1, h2, h3 {
-        font-family: 'Russo One', sans-serif;
-    }
+    color: #cbd5e1;
 }
 
 
@@ -24,26 +20,27 @@ main {
 .proyecto {
     margin: 1em 0;
 }
-#acercademi h4 {
-    font-size: 34px;
-    margin-top: 100px;
-    color: #00ffcc;
-}
-
-#acercademi p {
-    font-size: 16px;
-}
-
-#proyectos h2 {
-    font-size: 34px;
-}
+/* Estilos de títulos unificados - Ver sección de títulos abajo */
 
 #aptitudes {
     padding: 2rem 0;
 }
 
+#aptitudes h2 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .habilidades {
     padding: 2rem 0; 
+}
+
+.habilidades h3 {
+    font-size: 1.8rem;
+    color: #00ffcc;
+    margin-bottom: 1.5rem;
 }
 
 
@@ -144,47 +141,27 @@ main {
     padding: 3rem 0;
 }
 
-.certificados-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* Asegura que las imágenes se ajusten si hay menos de 4 en pantalla */
-}
-
-.certificado {
-    width: 22%; /* Ancho de cada imagen + descripción */
-    margin-bottom: 2rem; /* Espaciado entre las filas */
+#certificados h2 {
+    font-size: 2.5rem;
+    color: #38bdf8;
     text-align: center;
-}
-
-.certificado img {
-    width: 100%; /* Las imágenes ocuparán el 100% del ancho del contenedor */
-    height: auto;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de profundidad */
-}
-
-.certificado p {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #dd8181;
-}
-
-.certificado strong {
-    font-size: 1.1rem;
-    color: #7cd8d8; /* Un color para resaltar el título del certificado */
+    margin-bottom: 2rem;
 }
 
 .certificados-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);   /* 3 columnas fijas */
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     padding: 1rem;
     justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .certificado {
     width: 100%;
-    max-width: 330px;   /* Tamaño ideal para 3 columnas */
+    max-width: 330px;
+    height: 100%;
     background: rgba(0,0,0,0.25);
     padding: 1.5rem;
     border-radius: 12px;
@@ -192,14 +169,54 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid rgba(162, 19, 228, 0.2);
+    transition: all 0.3s ease;
+}
+
+.certificado:hover {
+    background: rgba(162, 19, 228, 0.15);
+    border-color: #a213e4;
+    transform: translateY(-4px);
 }
 
 
 .certificado img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* 🔥 Mantiene la proporción */
-    object-fit: cover;   /* O 'contain' si quieres que no corte nada */
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.certificado p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #dd8181;
+    flex: 1;
+}
+
+.certificado strong {
+    font-size: 1.1rem;
+    color: #7cd8d8;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.certificado .credly-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(162, 19, 228, 0.3);
+    color: #00ffcc;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s;
+    font-size: 0.85rem;
+}
+
+.certificado .credly-link:hover {
+    background: rgba(162, 19, 228, 0.5);
+    color: #ffffff;
 }
 
 
@@ -315,7 +332,8 @@ nav {
 }
 
 .menu a:hover {
-    color: #ffcc00; /* Color al pasar el cursor */
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
 }
 /* Estilos del carrusel */
 .carousel-container {
@@ -398,6 +416,7 @@ body {
 /* Ajusta el padding-top de la primera sección */
 section {
     padding-top: 100px; /* Ajusta según el tamaño de la cabecera fija */
+    scroll-margin-top: 100px; /* Espacio para que se vea el título al hacer scroll */
 }
 
 /* Estilo para la cabecera fija */
@@ -429,66 +448,182 @@ body {
 }
 
 
-@font-face {
-    font-family: 'FuturaCustom';
-    src: url('fonts/futura-font.ttf') format('truetype');
+/* ===== SISTEMA UNIFICADO DE TÍTULOS ===== */
+
+/* Estilos base para todos los títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: none;
 }
 
-body {
-    font-family: 'FuturaCustom', sans-serif;
-}
-
-
+/* H1 - Título principal de la página */
 h1 {
-    font-family: 'Orbitron', sans-serif;
-    color: #00ffcc; /* Color neón */
+    font-size: 2.2rem;
+    color: #00ffcc;
     text-transform: uppercase;
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
+    margin-bottom: 0.5rem;
     letter-spacing: 2px;
-    text-align: center;
+    font-weight: 700;
 }
 
-h4 {
-    font-family: 'Orbitron', sans-serif;
-    color: #00ffcc; /* Color neón */
-    text-transform: uppercase;
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
+/* H2 - Títulos de sección grandes */
 h2 {
-    font-family: 'Orbitron', sans-serif;
-    color: #00ffcc; /* Color neón */
+    font-size: 2rem;
+    color: #38bdf8;
     text-transform: uppercase;
-    text-shadow: 0 0 5px #00ffcc, 0 0 10px #00cc99;
-    letter-spacing: 2px;
-    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
 }
 
+/* H3 - Subtítulos en secciones */
+h3 {
+    font-size: 1.4rem;
+    color: #00ffcc;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+/* H4 - Títulos secundarios/items */
+h4 {
+    font-size: 1.3rem;
+    color: #00ffcc;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+/* H5 - Pequeños subtítulos */
+h5 {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* H6 - Micro títulos */
+h6 {
+    font-size: 1rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== TÍTULOS ESPECÍFICOS PARA HEADER (H7, H8, H9) ===== */
+
+/* H7 - Título principal del header */
 h7 {
     font-family: 'Orbitron', sans-serif;
-    color: #00ffcc; /* Color neón */
-    text-transform: uppercase;
-    text-shadow: 0 0 5px #177aa8, 0 0 10px #00cc99;
+    font-size: 1.2rem;
+    color: #00ffcc;
+    font-weight: 700;
     letter-spacing: 2px;
     text-align: center;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
 }
 
+h7 a {
+    color: #00ffcc;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-h3 {
+h7 a:hover {
+    text-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
+    letter-spacing: 3px;
+}
+
+/* H8 - Subtítulo del header */
+h8 {
     font-family: 'Orbitron', sans-serif;
-    color: #ebebeb; /* Color neón */
-    text-shadow: 0 0 3px #29ccc4, 0 0 6px #dd8181;
-    letter-spacing: 2px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 400;
+    letter-spacing: 1px;
     text-align: center;
+    margin: 0;
+    font-weight: 400;
 }
 
-p, ul, a{
+/* H9 - Micro elemento header (disponible para futuros usos) */
+h9 {
     font-family: 'Orbitron', sans-serif;
-    color: #ebebeb; /* Color neón */
-    text-shadow: 0 0 3px #29ccc4, 0 0 6px #dd8181;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Estilos base para párrafos y listas */
+p, ul, li {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: #cbd5e1;
+    text-shadow: none;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+a {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Estilos específicos para el header */
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1;
+}
+
+.header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.header h1 a:hover {
+    color: #00ffcc;
+    text-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
     letter-spacing: 2px;
+}
+
+.header p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+    line-height: 1;
 }
 
 
@@ -672,6 +807,58 @@ footer section {
     padding-top: 0;
 }
 
+/* ===== SECCIONES DE HABILIDADES (TÉCNICAS Y BLANDAS) ===== */
+
+#habilidades {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+#habilidades h2 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#habilidades h3 {
+    font-size: 1.8rem;
+    color: #00ffcc;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tecnicas {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+#habilidadesblandas {
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+#habilidadesblandas h2 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#habilidadesblandas h3 {
+    font-size: 1.8rem;
+    color: #00ffcc;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.soft-skills {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 /* Estilos para Skills Grid */
 .skills-grid {
     display: grid;
@@ -715,13 +902,6 @@ footer section {
 
 .skill-tag:active {
     transform: translateY(-2px);
-}
-
-.skills-intro {
-    margin: 1rem 0;
-    font-size: 16px;
-    text-align: center;
-    color: #ebebeb;
 }
 
 /* Modal de Habilidad */
@@ -821,15 +1001,8 @@ footer section {
         grid-template-columns: 1fr;
     }
 }
-/* Estilos para Habilidades Blandas */
-.soft-skills {
-    margin-bottom: 3rem;
-}
 
-#habilidadesblandas .skills-grid {
-    margin-bottom: 2rem;
-}
-
+/* ===== ESTILOS ESPECÍFICOS PARA HABILIDADES BLANDAS ===== */
 #habilidadesblandas .skill-modal .skill-modal-content {
     background: linear-gradient(135deg, #1a3e2e 0%, #16213e 100%);
     border: 2px solid #29ccc4;
@@ -843,7 +1016,7 @@ footer section {
 /* ===== ESTILOS ACERCA DE MÍ ===== */
 #acercademi h2 {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: #38bdf8;
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -881,6 +1054,7 @@ footer section {
     gap: 2rem;
     margin-top: 2rem;
     width: 100%;
+    align-items: stretch;
 }
 
 .highlight-item {
@@ -889,11 +1063,11 @@ footer section {
     border-radius: 12px;
     border: 1px solid rgba(162, 19, 228, 0.3);
     transition: all 0.3s ease;
-    min-height: 300px;
     display: flex;
     flex-direction: column;
     overflow-wrap: break-word;
     hyphens: auto;
+    height: 100%;
 }
 
 .highlight-item:hover {
@@ -905,18 +1079,19 @@ footer section {
 
 .highlight-item h4 {
     color: #00ffcc;
-    font-size: 0.95rem;      /* Un tamaño equilibrado */
-    min-height: 3.5rem;      /* Altura justa para 3 líneas */
+    font-size: 1.5rem;
+    min-height: 4rem;
     margin-bottom: 1rem;
     margin-top: 0;
     
     display: flex;
-    align-items: center;     /* Centrado vertical */
-    justify-content: center; /* Centrado horizontal */
+    align-items: center;
+    justify-content: center;
     text-align: center;
     width: 100%;
     
-    hyphens: auto;           /* Permite guiones si es estrictamente necesario */
+    hyphens: auto;
+    font-weight: 700;
 }
 
 .highlight-item p {
@@ -926,6 +1101,7 @@ footer section {
     margin: 0;
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
+    flex: 1;
 }
 
 /* Fade-in staggered para cada párrafo */
@@ -991,7 +1167,7 @@ footer section {
 
 #proyectos h2 {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: #38bdf8;
     text-align: center;
     margin-bottom: 2.5rem;
 }
@@ -1249,40 +1425,8 @@ footer section {
 
 
 /* === 1. ESTILOS BASE Y FONDO PROFESIONAL === */
-body {
-    margin: 0;
-    padding: 0;
-    /* Fondo sólido oscuro (Dark Slate Blue) - Serio y descansa la vista */
-    background-image: none; 
-   /* background-color: #0f172a; */
-    /* Tipografía legible para el cuerpo del texto (No usar Orbitron aquí) */
-    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-    line-height: 1.6;
-    color: #cbd5e1; /* Gris claro, alto contraste pero suave */
-}
-
-/* Mantenemos Orbitron SOLO para títulos grandes para identidad tech */
-h1, h2, h3, h4 {
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    text-shadow: none; /* Quitamos el neón excesivo */
-    letter-spacing: 1px;
-}
-
-/* Limpieza de ruido visual en textos generales */
-p, ul, li, a {
-    font-family: 'Segoe UI', 'Roboto', sans-serif; /* Lectura fácil */
-    text-shadow: none !important; /* FORZAR quitar el brillo neón de los textos */
-    color: #cbd5e1;
-    font-weight: 400;
-}
-
-/* Color de acento para títulos (Azul "DevOps" en lugar de Verde Neón) */
-h2, h3 {
-    color: #38bdf8; /* Azul cielo profesional */
-}
-
-
+/* (Los estilos de títulos están definidos en la sección SISTEMA UNIFICADO DE TÍTULOS al inicio)
+   Para mantener coherencia, esos estilos son los que se aplican a toda la página */
 
 /* === 2. FOOTER PROFESIONAL === */
 footer {
@@ -1294,6 +1438,7 @@ footer {
     text-align: center;
     margin-top: 4rem; /* Separación del contenido anterior */
     font-size: 0.9rem;
+    scroll-margin-top: 380px; /* Espacio para que el footer se vea correctamente al scrollear */
 }
 
 footer p {
